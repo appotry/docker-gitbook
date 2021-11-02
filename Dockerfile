@@ -1,4 +1,4 @@
-FROM debian:8.2
+FROM debian:latest
 MAINTAINER appotry <andycrusoe@gmail.com>
 
 ENV NPM_CONFIG_LOGLEVEL info
@@ -22,12 +22,11 @@ RUN npm install gitbook-cli -g && \
 
 ## Install OpenJDK
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends openjdk-7-jre-headless && \
+    apt-get install -y --no-install-recommends openjdk-11-jre-headless && \
     rm -rf /var/lib/apt/lists/*
 
 ## Install Calibre
-RUN echo "deb http://http.debian.net/debian jessie-backports main" > /etc/apt/sources.list.d/backports.list && \
-    apt-get update && \
+RUN apt-get update && \
     apt-get install -y --no-install-recommends calibre fonts-noto fonts-noto-cjk locales-all && \
     rm -rf /var/lib/apt/lists/*
 
