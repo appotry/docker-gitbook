@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM debian:bullseye-slim
 MAINTAINER appotry <andycrusoe@gmail.com>
 
 ENV NPM_CONFIG_LOGLEVEL info
