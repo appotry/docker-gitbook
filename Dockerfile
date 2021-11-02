@@ -16,9 +16,9 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 ## Install Gitbook
-RUN npm install gitbook-cli svgexport -g && \
-    npm cache clean && \
-    rm -rf /tmp/npm* /tmp/tmp*
+RUN npm install gitbook-cli -g && \
+    npm install svgexport -g && \
+    npm cache clean 
 
 ## Install OpenJDK
 RUN apt-get update && \
