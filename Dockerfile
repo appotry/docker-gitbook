@@ -1,6 +1,24 @@
 FROM debian:bullseye-slim
 MAINTAINER appotry <andycrusoe@gmail.com>
 
+LABEL maintainer="andycrusoe@gmail.com"
+LABEL repository="https://github.com/appotry/docker-gitbook"
+LABEL homepage="https://blog.17lai.site"
+
+LABEL com.github.actions.name="build-gitbook"
+LABEL com.github.actions.description="build or deplay your gitbook"
+LABEL com.github.actions.icon="book-open"
+LABEL com.github.actions.color="white"
+
+ENV TZ=Asia/Shanghai
+
+ENV GIT_USERNAME="" \
+    GIT_USEREMAIL="" \
+    GIT_TOKEN="" \
+    GIT_REPO="" \
+    GIT_BRANCH="gh-pages" \
+    GIT_COMMIT_MESSAGE="Gitbook updated:"
+
 ENV NPM_CONFIG_LOGLEVEL info
 
 # Install Utilities
@@ -46,6 +64,7 @@ WORKDIR $BOOKDIR
 
 CMD ["gitbook", "--help"]
 
+COPY book.json book.json
 COPY entrypoint.sh /entrypoint.sh
 COPY userRun.sh /userRun.sh
 

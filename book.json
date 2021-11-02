@@ -1,0 +1,46 @@
+{
+  "title": "17lai.site",
+  "author": "17lai.site",
+  "description": "17lai.site",
+  "language": "zh-hans",
+  "links": {
+    "sidebar": {
+      "Home": "//blog.17lai.site/"
+    }
+  },
+  "plugins": [
+    "-sharing",
+    "-highlight",
+    "-livereload",
+    "tbfed-pagefooter@git+https://github.com/khs1994/gitbook-plugin-tbfed-pagefooter.git",
+    "prism",
+    "page-treeview@2.9.8",
+    "favicon"
+  ],
+  "pluginsConfig": {
+    "prism": {
+      "css": [
+        "prismjs/themes/prism-solarizedlight.css"
+      ]
+    },
+    "tbfed-pagefooter": {
+      "copyright": "&copy 2021 17lai.site",
+      "modify_label": "修订时间：",
+      "modify_format": "YYYY-MM-DD HH:mm:ss"
+    },
+    "page-treeview": {
+      "copyright": "Copyright &#169; 17lai.site",
+      "minHeaderCount": "2",
+      "minHeaderDeep": "2"
+    },
+    "favicon": {
+      "shortcut": "favicon.ico",
+      "bookmark": "favicon.ico",
+      "appleTouch": "favicon.ico",
+      "appleTouchMore": {
+        "120x120": "favicon.ico",
+        "180x180": "favicon.ico"
+      }
+    }
+  }
+}
