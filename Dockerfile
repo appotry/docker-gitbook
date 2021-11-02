@@ -11,7 +11,7 @@ RUN apt-get update && \
 # Install Node.js
 # https://github.com/nvm-sh/nvm
 RUN apt-get update && \
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash && \
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash && \
     nvm install node && \
     rm -rf /var/lib/apt/lists/*
 
