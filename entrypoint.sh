@@ -59,7 +59,7 @@ yarn config set cache-folder /app/.cache/yarn
 git config --global user.name ${GIT_USERNAME:-CI}
 git config --global user.email ${GIT_USEREMAIL:-ci@17lai.site}
 
-cd /srv/gitbook
+cd /gitbook
 
 print_info(){
     set +x
