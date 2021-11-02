@@ -23,7 +23,7 @@ ENV NPM_CONFIG_LOGLEVEL info
 
 # Install Utilities
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends procps openssh-client git bzip2 curl && \
+    apt-get install -y --no-install-recommends procps openssh-client git bzip2 curl vim yarn && \
     rm -rf /var/lib/apt/lists/*
 
 # Install Node.js

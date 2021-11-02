@@ -71,8 +71,6 @@ print_info(){
 
 main(){
 
-    cp -a _book $WORKDIR
-
     case $1 in
         server )
             exec gitbook serve
