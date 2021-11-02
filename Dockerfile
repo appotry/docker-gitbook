@@ -45,3 +45,11 @@ EXPOSE 4000
 WORKDIR $BOOKDIR
 
 CMD ["gitbook", "--help"]
+
+COPY entrypoint.sh /entrypoint.sh
+COPY useRun.sh /useRun.sh
+
+RUN chmod +x /entrypoint.sh && \
+    chmod +x /useRun.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
