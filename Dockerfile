@@ -16,21 +16,21 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 ## Install Gitbook
-RUN npm install gitbook-cli -g && \
-    npm install svgexport -g && \
-    npm cache clean 
+# RUN npm install gitbook-cli -g && \
+#     npm install svgexport -g && \
+#     npm cache clean 
 
-## Install OpenJDK
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends openjdk-11-jre-headless && \
-    rm -rf /var/lib/apt/lists/*
+# ## Install OpenJDK
+# RUN apt-get update && \
+#     apt-get install -y --no-install-recommends openjdk-11-jre-headless && \
+#     rm -rf /var/lib/apt/lists/*
 
-## Install Calibre
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends calibre fonts-noto fonts-noto-cjk locales-all && \
-    rm -rf /var/lib/apt/lists/*
+# ## Install Calibre
+# RUN apt-get update && \
+#     apt-get install -y --no-install-recommends calibre fonts-noto fonts-noto-cjk locales-all && \
+#     rm -rf /var/lib/apt/lists/*
 
-## Install Graphviz for PlantUML
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends graphviz && \
-    rm -rf /var/lib/apt/lists/*
+# ## Install Graphviz for PlantUML
+# RUN apt-get update && \
+#     apt-get install -y --no-install-recommends graphviz && \
+#     rm -rf /var/lib/apt/lists/*
