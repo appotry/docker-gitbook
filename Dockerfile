@@ -1,5 +1,5 @@
 FROM debian:8.2
-MAINTAINER Yen-Shuo Su <shuoshuo@gmail.com>
+MAINTAINER appotry <andycrusoe@gmail.com>
 
 ENV NPM_CONFIG_LOGLEVEL info
 

@@ -13,6 +13,33 @@ Read the official documentation [GitbookIO/gitbook](https://github.com/GitbookIO
 docker run -ti --name="gitbook-builder" -v "$PWD:/home" shuoshuo/gitbook-builder /bin/bash
 ```
 
+## Usage
+
+Read the official [GitBook Toolchain Documentation](http://toolchain.gitbook.com/) documentation [GitbookIO/gitbook](https://github.com/GitbookIO/gitbook#how-to-use-it) first.
+
+```bash
+# init
+docker run --rm -v "$PWD:/gitbook" -p 4000:4000 bloodstar/gitbook-builder gitbook init
+# serve
+docker run --rm -v "$PWD:/gitbook" -p 4000:4000 bloodstar/gitbook-builder gitbook serve
+# build
+docker run --rm -v "$PWD:/gitbook" -p 4000:4000 bloodstar/gitbook-builder gitbook build
+```
+
+For short, you can use alias for the long command line text. Place the alias statement in your `.bashrc` or `.zshrc`.
+
+```bash
+alias gitbook='docker run --rm -v "$PWD":/gitbook -p 4000:4000 bloodstar/gitbook-builder gitbook'
+# init
+gitbook init
+# serve
+gitbook serve
+# build
+gitbook build
+# pdf output
+gitbook pdf .
+```
+
 ## Integrate with Gitlab CI
 
 This docker image is originally designed for generating ebook with [Gitlab CI](https://about.gitlab.com/gitlab-ci/). You could configure your Gitlab CI as following:
