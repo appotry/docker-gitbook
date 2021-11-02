@@ -69,7 +69,7 @@ ebook:
 
 ## Additional Features
 
-This docker image also has [OpenJDK 7](http://openjdk.java.net) installed. The Java runtime allows you to run Gitbook [PlantUML](http://plantuml.com) plugin.
+This docker image also has [OpenJDK 11](http://openjdk.java.net) installed. The Java runtime allows you to run Gitbook [PlantUML](http://plantuml.com) plugin.
 
 ## Customization
 
