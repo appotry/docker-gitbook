@@ -70,7 +70,6 @@ print_info(){
 }
 
 main(){
-    gitbook build || (print_info "Build error, retry" ; gitbook install && gitbook build )
 
     cp -a _book $WORKDIR
 
