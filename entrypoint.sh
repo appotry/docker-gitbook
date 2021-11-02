@@ -62,11 +62,9 @@ git config --global user.email ${GIT_USEREMAIL:-ci@17lai.site}
 cd /gitbook
 
 print_info(){
-    set +x
     echo ""
     echo "==> $@"
     echo ""
-    set -x
 }
 
 main(){
