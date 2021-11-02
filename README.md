@@ -95,4 +95,3 @@ The project is sponsored under **Productivity Side Project** plan of [ECOWORK In
 * **Operation Engineer**, Service Team
 
 The working location of the above opportunities is Taipei, Taiwan. Resume and inquiry are welcome to resume@ecoworkinc.com.
-

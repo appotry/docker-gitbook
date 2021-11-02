@@ -2,6 +2,13 @@
 
 cnpm config set registry https://registry.cnpm.taobao.org
 
+if [ ! -f /gitbook/requirements.txt ]; then 
+    echo "*****[Gitbook] Gitbook directory contains no requirements.txt file, continuing *****"; 
+else 
+    echo "*****[Gitbook] Gitbook directory contains a requirements.txt file, installing cnpm requirements *****"; 
+    cat /gitbook/requirements.txt | xargs cnpm --prefer-offline install --save; 
+fi; 
+
 if [ "$(ls -A /gitbook/.ssh 2>/dev/null)" ]; then 
     echo "*****[Gitbook] /gitbook/.ssh directory exists and has content, continuing *****"; 
 else 
@@ -24,12 +31,26 @@ chmod 700 ~/.ssh
 echo "*****[Gitbook] Contents of public ssh key (for deploy) - *****" 
 cat ~/.ssh/id_rsa.pub 
 
-if [ ! -f /gitbook/useRun.sh ]; then 
-    echo "[Gitbook]cp useRun.sh"
-    cp /useRun.sh /gitbook/useRun.sh; 
-    chmod +x /gitbook/useRun.sh;
-    /gitbook/useRun.sh; 
+# userRun.sh
+if [ ! -f /gitbook/userRun.sh ]; then 
+    echo "[Gitbook]cp userRun.sh"
+    cp /userRun.sh /gitbook/userRun.sh; 
+    chmod +x /gitbook/userRun.sh;
+    /gitbook/userRun.sh; 
 else 
-    echo "[Gitbook]run useRun.sh"
-    /gitbook/useRun.sh; 
+    echo "[Gitbook]run userRun.sh"
+    /gitbook/userRun.sh; 
 fi
+
+# npm config
+npm config ls -l
+
+if [ "$(ls -A /gitbook/.cache 2>/dev/null)" ]; then 
+    echo "***** /gitbook/.cache directory exists and has content, continuing *****"; 
+else 
+    echo "***** /gitbook/.cache directory is empty. mkdir -p /gitbook/.cache*****" 
+    mkdir -p /gitbook/.cache
+fi; 
+
+npm config set cache "/app/.cache/npm" 
+yarn config set cache-folder /app/.cache/yarn

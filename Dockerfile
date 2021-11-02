@@ -47,9 +47,9 @@ WORKDIR $BOOKDIR
 CMD ["gitbook", "--help"]
 
 COPY entrypoint.sh /entrypoint.sh
-COPY useRun.sh /useRun.sh
+COPY userRun.sh /userRun.sh
 
 RUN chmod +x /entrypoint.sh && \
-    chmod +x /useRun.sh
+    chmod +x /userRun.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
