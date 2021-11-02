@@ -11,13 +11,13 @@ RUN apt-get update && \
 # Install Node.js
 RUN apt-get update && \
     apt-get install -y --no-install-recommends npm nodejs && \
-    npm install -g cnpm --registry=https://registry.npm.taobao.org && \
     ln -s /usr/bin/nodejs /usr/local/bin/node && \
     mkdir -p /usr/lib/node_modules && ln -s /usr/lib/node_modules /usr/local/lib && \
     rm -rf /var/lib/apt/lists/*
 
 ## Install Gitbook
-RUN cnpm install gitbook-cli -g && \
+RUN npm install -g cnpm --registry=https://registry.npm.taobao.org && \
+    cnpm install gitbook-cli -g && \
     cnpm install svgexport -g && \
     npm cache clean --force
 
