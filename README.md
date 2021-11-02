@@ -2,7 +2,7 @@
 
 A Docker Image for building ebook with [Gitbook](https://github.com/GitbookIO/gitbook) and [Noto CJK Fonts](https://www.google.com/get/noto/).
 
-Docker Hub: [https://hub.docker.com/r/shuoshuo/gitbook-builder/](https://hub.docker.com/r/shuoshuo/gitbook-builder/)
+Docker Hub: [https://hub.docker.com/r/bloodstar/gitbook-builder/](https://hub.docker.com/r/bloodstar/gitbook-builder/)
 
 ## Basic
 
