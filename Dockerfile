@@ -12,7 +12,7 @@ RUN apt-get update && \
 # https://github.com/nvm-sh/nvm
 RUN apt-get update && \
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash && \
-    nvm install --lts && \
+    nvm install node && \
     rm -rf /var/lib/apt/lists/*
 
 ## Install Gitbook
