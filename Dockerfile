@@ -12,7 +12,7 @@ RUN apt-get update && \
 # https://github.com/nvm-sh/nvm
 RUN apt-get update && \
     curl -fsSL https://deb.nodesource.com/setup_14.x | bash && \
-    apt install -y nodejs && \
+    apt install -y nodejs npm && \
     rm -rf /var/lib/apt/lists/*
 
 ## Install Gitbook
