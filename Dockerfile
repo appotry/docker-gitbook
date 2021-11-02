@@ -19,7 +19,7 @@ RUN apt-get update && \
 ## Install Gitbook
 RUN cnpm install gitbook-cli -g && \
     cnpm install svgexport -g && \
-    npm cache clean 
+    npm cache clean --force
 
 # ## Install OpenJDK
 # RUN apt-get update && \
