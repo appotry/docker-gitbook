@@ -22,20 +22,19 @@ RUN cnpm install gitbook-cli -g && \
     npm cache clean --force
 
 # ## Install OpenJDK
-# RUN apt-get update && \
-#     apt-get install -y --no-install-recommends openjdk-11-jre-headless && \
-#     rm -rf /var/lib/apt/lists/*
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends openjdk-11-jre-headless && \
+    rm -rf /var/lib/apt/lists/*
 
-# ## Install Calibre
-# RUN echo "deb http://http.debian.net/debian jessie-backports main" > /etc/apt/sources.list.d/backports.list && \
-    # apt-get update && \
-#     apt-get install -y --no-install-recommends calibre fonts-noto fonts-noto-cjk locales-all && \
-#     rm -rf /var/lib/apt/lists/*
+## Install Calibre
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends calibre fonts-noto fonts-noto-cjk locales-all && \
+    rm -rf /var/lib/apt/lists/*
 
-# ## Install Graphviz for PlantUML
-# RUN apt-get update && \
-#     apt-get install -y --no-install-recommends graphviz && \
-#     rm -rf /var/lib/apt/lists/*
+## Install Graphviz for PlantUML
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends graphviz && \
+    rm -rf /var/lib/apt/lists/*
 
 ENV BOOKDIR /gitbook
 
