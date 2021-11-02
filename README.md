@@ -10,7 +10,7 @@ Read the official documentation [GitbookIO/gitbook](https://github.com/GitbookIO
 
 ```bash
 # run
-docker run -ti --name="gitbook-builder" -v "$PWD:/home" shuoshuo/gitbook-builder /bin/bash
+docker run -ti --name="gitbook-builder" -v "$PWD:/gitbook" bloodstar/gitbook-builder /bin/bash
 ```
 
 ## Usage

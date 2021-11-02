@@ -34,3 +34,13 @@ RUN apt-get update && \
 # RUN apt-get update && \
 #     apt-get install -y --no-install-recommends graphviz && \
 #     rm -rf /var/lib/apt/lists/*
+
+ENV BOOKDIR /gitbook
+
+VOLUME $BOOKDIR
+
+EXPOSE 4000
+
+WORKDIR $BOOKDIR
+
+CMD ["gitbook", "--help"]
