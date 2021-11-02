@@ -10,15 +10,16 @@ RUN apt-get update && \
 
 # Install Node.js
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends npm nodejs && \
+    apt-get install -y --no-install-recommends npm nodejs yarn && \
+    npm install -g cnpm --registry=https://registry.npm.taobao.org && \
     ln -s /usr/bin/nodejs /usr/local/bin/node && \
     mkdir -p /usr/lib/node_modules && ln -s /usr/lib/node_modules /usr/local/lib && \
     rm -rf /var/lib/apt/lists/*
 
 ## Install Gitbook
-# RUN npm install gitbook-cli -g && \
-#     npm install svgexport -g && \
-#     npm cache clean 
+RUN yarn global add gitbook-cli && \
+    yarn global add svgexport && \
+    yarn cache clean 
 
 # ## Install OpenJDK
 # RUN apt-get update && \
@@ -26,7 +27,8 @@ RUN apt-get update && \
 #     rm -rf /var/lib/apt/lists/*
 
 # ## Install Calibre
-# RUN apt-get update && \
+# RUN echo "deb http://http.debian.net/debian jessie-backports main" > /etc/apt/sources.list.d/backports.list && \
+    # apt-get update && \
 #     apt-get install -y --no-install-recommends calibre fonts-noto fonts-noto-cjk locales-all && \
 #     rm -rf /var/lib/apt/lists/*
 
