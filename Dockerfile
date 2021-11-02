@@ -5,14 +5,14 @@ ENV NPM_CONFIG_LOGLEVEL info
 
 # Install Utilities
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends procps openssh-client git bzip2 && \
+    apt-get install -y --no-install-recommends procps openssh-client git bzip2 curl && \
     rm -rf /var/lib/apt/lists/*
 
 # Install Node.js
+# https://github.com/nvm-sh/nvm
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends npm nodejs && \
-    ln -s /usr/bin/nodejs /usr/local/bin/node && \
-    mkdir -p /usr/lib/node_modules && ln -s /usr/lib/node_modules /usr/local/lib && \
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash && \
+    nvm install --lts && \
     rm -rf /var/lib/apt/lists/*
 
 ## Install Gitbook
