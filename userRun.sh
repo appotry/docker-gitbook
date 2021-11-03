@@ -1,5 +1,8 @@
 #!/bin/bash
 
+npm config set cache "/gitbook/.cache/npm" 
+yarn config set cache-folder /gitbook/.cache/yarn
+
 echo "[Gitbook]add User CMD here!"
 
 echo "=====[Gitbook]User CMD Start!====="
