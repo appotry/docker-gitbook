@@ -25,7 +25,9 @@ ENV NPM_CONFIG_LOGLEVEL info
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install build-essential -y && \
-    apt-get install -y --no-install-recommends procps ca-certificates openssl openssh-client git bzip2 curl vim yarn 
+    apt-get install -y --no-install-recommends procps ca-certificates openssl openssh-client git bzip2 curl vim yarn && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # Install Node.js
 # https://github.com/nvm-sh/nvm
@@ -33,7 +35,9 @@ RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash && \
     apt-get update && \
     apt-get install -y nodejs && \
     node -v && \
-    npm -v
+    npm -v && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 ## Install Gitbook
 RUN npm install -g cnpm --registry=https://registry.npm.taobao.org && \
@@ -44,10 +48,14 @@ RUN npm install -g cnpm --registry=https://registry.npm.taobao.org && \
     
 
 # ## Install OpenJDK
-RUN apt-get install -y --no-install-recommends openjdk-11-jre-headless 
+RUN apt-get install -y --no-install-recommends openjdk-11-jre-headless && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 ## Install Calibre
-RUN apt-get install -y --no-install-recommends calibre fonts-noto fonts-noto-cjk locales-all 
+RUN apt-get install -y --no-install-recommends calibre fonts-noto fonts-noto-cjk locales-all && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 ## Install Graphviz for PlantUML
 RUN apt-get install -y --no-install-recommends graphviz && \
