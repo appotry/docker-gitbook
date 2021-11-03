@@ -64,7 +64,8 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 ## Install Graphviz for PlantUML
-RUN apt-get install -y --no-install-recommends graphviz && \
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends graphviz && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
