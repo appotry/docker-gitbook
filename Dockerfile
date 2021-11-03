@@ -25,7 +25,7 @@ ENV NPM_CONFIG_LOGLEVEL info
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install build-essential -y && \
-    apt-get install -y --no-install-recommends procps openssl openssh-client git bzip2 curl vim yarn 
+    apt-get install -y --no-install-recommends procps ca-certificates openssl openssh-client git bzip2 curl vim yarn 
 
 # Install Node.js
 # https://github.com/nvm-sh/nvm
