@@ -34,7 +34,7 @@ RUN apt-get update && \
 #     apt-get install -y nodejs && \
 #     node -v && \
 #     npm -v
-RUN curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash - 
+RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash 
 RUN apt-get update 
 RUN apt-get install -y nodejs 
 RUN node -v 
