@@ -52,12 +52,14 @@ RUN npm install -g cnpm --registry=https://registry.npm.taobao.org && \
     npm cache clean --force
 
 # ## Install OpenJDK
-RUN apt-get install -y --no-install-recommends openjdk-11-jre-headless && \
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends openjdk-11-jre-headless && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
 ## Install Calibre
-RUN apt-get install -y --no-install-recommends calibre fonts-noto fonts-noto-cjk locales-all && \
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends calibre fonts-noto fonts-noto-cjk locales-all && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
