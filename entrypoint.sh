@@ -31,17 +31,6 @@ chmod 700 ~/.ssh
 echo "*****[Gitbook] Contents of public ssh key (for deploy) - *****" 
 cat ~/.ssh/id_rsa.pub 
 
-# userRun.sh
-if [ ! -f /gitbook/userRun.sh ]; then 
-    echo "[Gitbook]cp userRun.sh"
-    cp /userRun.sh /gitbook/userRun.sh; 
-    chmod +x /gitbook/userRun.sh;
-    /gitbook/userRun.sh; 
-else 
-    echo "[Gitbook]run userRun.sh"
-    /gitbook/userRun.sh; 
-fi
-
 # npm config
 npm config ls -l
 
@@ -58,6 +47,17 @@ yarn config set cache-folder /gitbook/.cache/yarn
 
 git config --global user.name ${GIT_USERNAME:-CI}
 git config --global user.email ${GIT_USEREMAIL:-ci@17lai.site}
+
+# userRun.sh
+if [ ! -f /gitbook/userRun.sh ]; then 
+    echo "[Gitbook]cp userRun.sh"
+    cp /userRun.sh /gitbook/userRun.sh; 
+    chmod +x /gitbook/userRun.sh;
+    /gitbook/userRun.sh; 
+else 
+    echo "[Gitbook]run userRun.sh"
+    /gitbook/userRun.sh; 
+fi
 
 cd /gitbook
 
