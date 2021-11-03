@@ -32,8 +32,8 @@ RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash && \
 
 ## Install Gitbook
 RUN npm install -g cnpm --registry=https://registry.npm.taobao.org && \
-    cnpm install gitbook-cli -g && \
-    cnpm install svgexport -g && \
+    npm install gitbook-cli -g && \
+    npm install svgexport -g && \
     npm cache clean --force
 
 # ## Install OpenJDK
@@ -45,8 +45,6 @@ RUN apt-get install -y --no-install-recommends calibre fonts-noto fonts-noto-cjk
 ## Install Graphviz for PlantUML
 RUN apt-get install -y --no-install-recommends graphviz && \
     rm -rf /var/lib/apt/lists/*
-
-RUN gitbook fetch latest
 
 ENV BOOKDIR /gitbook
 
