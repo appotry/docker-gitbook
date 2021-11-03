@@ -29,16 +29,12 @@ RUN apt-get update && \
 
 # Install Node.js
 # https://github.com/nvm-sh/nvm
-# RUN curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash - && \
-#     apt-get update && \
-#     apt-get install -y nodejs && \
-#     node -v && \
-#     npm -v
-RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash 
-RUN apt-get update 
-RUN apt-get install -y nodejs 
-RUN node -v 
-RUN npm -v
+RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash && \
+    apt-get update && \
+    apt-get install -y nodejs && \
+    node -v && \
+    npm -v
+
 ## Install Gitbook
 RUN npm install -g cnpm --registry=https://registry.npm.taobao.org && \
     npm install gitbook-cli -g && \
