@@ -62,9 +62,11 @@ fi
 cd /gitbook
 
 print_info(){
-    echo ""
-    echo "==> $@"
-    echo ""
+  set +x
+  echo ""
+  echo "==> $@"
+  echo ""
+  set -x
 }
 
 main(){
@@ -93,7 +95,6 @@ main(){
             GIT_REPO="https://${GIT_USERNAME}:${GIT_TOKEN}@${GIT_REPO}"
 
             set -x
-            cd _book || exit 1
 
             if [ -d .git ];then
             git remote set-url origin ${GIT_REPO}
