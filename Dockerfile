@@ -45,6 +45,7 @@ RUN apt-get install -y --no-install-recommends calibre fonts-noto fonts-noto-cjk
 
 ## Install Graphviz for PlantUML
 RUN apt-get install -y --no-install-recommends graphviz && \
+    apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
 ENV BOOKDIR /gitbook
