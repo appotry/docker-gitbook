@@ -45,7 +45,7 @@ RUN npm install -g cnpm --registry=https://registry.npm.taobao.org && \
     npm install svgexport -g && \
     npm cache clean --force
 
-RUN gitbook update
+RUN gitbook -V
 
 # ## Install OpenJDK
 RUN apt-get install -y --no-install-recommends openjdk-11-jre-headless 
