@@ -43,12 +43,12 @@ RUN curl -fsSL https://deb.nodesource.com/setup_12.x | bash - && \
 RUN npm install -g cnpm --registry=https://registry.npm.taobao.org && \
     npm install gitbook-cli -g && \
     npm install svgexport -g && \
-    gitbook ls && \
+    gitbook ls
     # sed -i 's/fs.stat\ =\ statFix(fs.stat)/\/\/fs.stat\ =\ statFix(fs.stat)/g' /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
     # sed -i 's/fs.fstat\ =\ statFix(fs.fstat)/\/\/fs.fstat\ =\ statFix(fs.fstat)/g' /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
     # sed -i 's/fs.lstat\ =\ statFix(fs.lstat)/\/\/fs.lstat\ =\ statFix(fs.lstat)/g' /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
     # cat /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
-    gitbook -V && \
+RUN    gitbook -V && \
     npm cache clean --force
 
 # ## Install OpenJDK
