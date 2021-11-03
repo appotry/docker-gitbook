@@ -23,19 +23,25 @@ ENV NPM_CONFIG_LOGLEVEL info
 
 # Install Utilities
 RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install build-essential -y && \
     apt-get install -y --no-install-recommends procps openssl openssh-client git bzip2 curl vim yarn 
 
 # Install Node.js
 # https://github.com/nvm-sh/nvm
-RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash && \
-    apt-get install -y nodejs npm 
+RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash && \
+    apt-get update && \
+    apt-get install -y nodejs && \
+    node -v && \
+    npm -v
 
 ## Install Gitbook
 RUN npm install -g cnpm --registry=https://registry.npm.taobao.org && \
     npm install gitbook-cli -g && \
     npm install svgexport -g && \
-    gitbook update && \
     npm cache clean --force
+
+RUN gitbook update
 
 # ## Install OpenJDK
 RUN apt-get install -y --no-install-recommends openjdk-11-jre-headless 
