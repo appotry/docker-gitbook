@@ -41,6 +41,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_12.x | bash - && \
 
 ## Install Gitbook
 RUN npm install -g cnpm --registry=https://registry.npm.taobao.org && \
+    export PUPPETEER_SKIP_DOWNLOAD='true' && \
     npm install gitbook-cli -g && \
     npm install svgexport -g && \
     gitbook ls
