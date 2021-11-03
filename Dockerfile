@@ -28,7 +28,7 @@ RUN apt-get update && \
 # Install Node.js
 # https://github.com/nvm-sh/nvm
 RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash && \
-    apt install -y nodejs npm 
+    apt-get install -y nodejs npm 
 
 ## Install Gitbook
 RUN npm install -g cnpm --registry=https://registry.npm.taobao.org && \
