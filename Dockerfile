@@ -46,6 +46,8 @@ RUN apt-get install -y --no-install-recommends calibre fonts-noto fonts-noto-cjk
 RUN apt-get install -y --no-install-recommends graphviz && \
     rm -rf /var/lib/apt/lists/*
 
+RUN gitbook fetch latest
+
 ENV BOOKDIR /gitbook
 
 VOLUME $BOOKDIR
@@ -54,8 +56,6 @@ EXPOSE 4000
 
 WORKDIR $BOOKDIR
 
-CMD ["gitbook", "--help"]
-
 COPY book.json book.json
 COPY entrypoint.sh /entrypoint.sh
 COPY userRun.sh /userRun.sh
@@ -63,4 +63,5 @@ COPY userRun.sh /userRun.sh
 RUN chmod +x /entrypoint.sh && \
     chmod +x /userRun.sh
 
-ENTRYPOINT ["/entrypoint.sh"]
+# ENTRYPOINT ["/entrypoint.sh"]
+CMD ["gitbook", "--help"]
