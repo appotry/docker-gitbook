@@ -52,8 +52,8 @@ else
     mkdir -p /gitbook/.cache
 fi; 
 
-npm config set cache "/app/.cache/npm" 
-yarn config set cache-folder /app/.cache/yarn
+npm config set cache "/gitbook/.cache/npm" 
+yarn config set cache-folder /gitbook/.cache/yarn
 
 
 git config --global user.name ${GIT_USERNAME:-CI}
