@@ -39,9 +39,8 @@ RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash && \
 RUN npm install -g cnpm --registry=https://registry.npm.taobao.org && \
     npm install gitbook-cli -g && \
     npm install svgexport -g && \
-    npm cache clean --force
-
-RUN gitbook -V
+    npm cache clean --force && \
+    gitbook ls
 
 # ## Install OpenJDK
 RUN apt-get install -y --no-install-recommends openjdk-11-jre-headless 
