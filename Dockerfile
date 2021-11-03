@@ -34,7 +34,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash && \
 RUN npm install -g cnpm --registry=https://registry.npm.taobao.org && \
     npm install gitbook-cli -g && \
     npm install svgexport -g && \
-    gitbook -V && \
+    gitbook update && \
     npm cache clean --force
 
 # ## Install OpenJDK
