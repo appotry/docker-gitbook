@@ -78,7 +78,7 @@ EXPOSE 4000
 
 WORKDIR $BOOKDIR
 
-COPY book.json book.json
+COPY book.json /book.json
 COPY entrypoint.sh /entrypoint.sh
 COPY userRun.sh /userRun.sh
 
