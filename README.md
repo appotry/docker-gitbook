@@ -47,7 +47,7 @@ This docker image is originally designed for generating ebook with [Gitlab CI](h
 ```yml
 before_script:
   - env
-  - export LC_ALL=zh_TW.UTF-8
+  - export LC_ALL=zh_CN.UTF-8
 
 stages:
   - build
