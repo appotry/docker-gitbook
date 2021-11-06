@@ -21,10 +21,10 @@ ENV GIT_USERNAME="" \
 
 ENV NPM_CONFIG_LOGLEVEL info
 
+# build-essential
 # Install Utilities
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install build-essential -y && \
     apt-get install -y --no-install-recommends procps ca-certificates openssl openssh-client git bzip2 curl vim yarn && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
@@ -33,7 +33,7 @@ RUN apt-get update && \
 # https://github.com/nvm-sh/nvm
 RUN curl -fsSL https://deb.nodesource.com/setup_12.x | bash - && \
     apt-get update && \
-    apt-get install -y nodejs && \
+    apt-get install -y --no-install-recommends nodejs && \
     node -v && \
     npm -v && \
     apt-get clean && \
