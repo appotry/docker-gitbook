@@ -35,7 +35,17 @@ RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - && \
     apt-get update && \
     apt-get install -y --no-install-recommends nodejs && \
     npm install -g npm && \
-    npm install \
+    node -v && \
+    npm -v && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+## Install Gitbook
+RUN npm install -g cnpm --registry=http://registry.npmmirror.com && \
+    export PUPPETEER_SKIP_DOWNLOAD='true' && \
+    npm install gitbook-cli -g && \
+    npm install svgexport -g && \
+    npm install -g \
         gitbook-plugin-chapter-fold \
         gitbook-plugin-search-pro \
         gitbook-plugin-expandable-chapters \
@@ -51,16 +61,6 @@ RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - && \
         gitbook-plugin-prism \
         gitbook-plugin-hide-element \
         gitbook-plugin-theme-fexa && \
-    node -v && \
-    npm -v && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-## Install Gitbook
-RUN npm install -g cnpm --registry=http://registry.npmmirror.com && \
-    export PUPPETEER_SKIP_DOWNLOAD='true' && \
-    npm install gitbook-cli -g && \
-    npm install svgexport -g && \
     gitbook ls && \
     sed -i 's/fs.stat\ =\ statFix(fs.stat)/\/\/fs.stat\ =\ statFix(fs.stat)/g' /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
     sed -i 's/fs.fstat\ =\ statFix(fs.fstat)/\/\/fs.fstat\ =\ statFix(fs.fstat)/g' /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
