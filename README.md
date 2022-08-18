@@ -8,6 +8,12 @@ Docker Hub: [https://hub.docker.com/r/bloodstar/gitbook-builder/](https://hub.do
 
 Read the official documentation [GitbookIO/gitbook](https://github.com/GitbookIO/gitbook#how-to-use-it) first.
 
+> Docker Pull
+
+```bash
+docker pull bloodstar/gitbook-builder
+```
+
 ```bash
 # run
 docker run -ti --name="gitbook-builder" -v "$PWD:/gitbook" bloodstar/gitbook-builder /bin/bash
