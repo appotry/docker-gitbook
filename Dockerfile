@@ -71,21 +71,23 @@ RUN npm install -g cnpm --registry=http://registry.npmmirror.com && \
 
 # ## Install OpenJDK
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends openjdk-11-jre-headless && \
+    apt-get install -y --no-install-recommends openjdk-11-jre-headless  \
+        calibre fonts-noto fonts-noto-cjk locales-all  \
+        graphviz && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-## Install Calibre
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends calibre fonts-noto fonts-noto-cjk locales-all && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+# ## Install Calibre
+# RUN apt-get update && \
+#     apt-get install -y --no-install-recommends calibre fonts-noto fonts-noto-cjk locales-all && \
+#     apt-get clean && \
+#     rm -rf /var/lib/apt/lists/*
 
-## Install Graphviz for PlantUML
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends graphviz && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+# ## Install Graphviz for PlantUML
+# RUN apt-get update && \
+#     apt-get install -y --no-install-recommends graphviz && \
+#     apt-get clean && \
+#     rm -rf /var/lib/apt/lists/*
 
 ENV BOOKDIR /gitbook
 
