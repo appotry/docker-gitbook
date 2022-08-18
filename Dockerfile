@@ -25,7 +25,7 @@ ENV NPM_CONFIG_LOGLEVEL info
 # Install Utilities
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y --no-install-recommends procps ca-certificates openssl openssh-client git bzip2 curl vim yarn && \
+    apt-get install -y --no-install-recommends procps build-essential ca-certificates openssl openssh-client git bzip2 curl vim yarn && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
@@ -35,6 +35,22 @@ RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - && \
     apt-get update && \
     apt-get install -y --no-install-recommends nodejs && \
     npm install -g npm && \
+    npm install \
+        gitbook-plugin-chapter-fold \
+        gitbook-plugin-search-pro \
+        gitbook-plugin-expandable-chapters \
+        gitbook-plugin-splitter \
+        gitbook-plugin-anchor-navigation-ex \
+        gitbook-plugin-back-to-top-button \
+        gitbook-plugin-expandable-chapters \
+        gitbook-plugin-accordion \
+        gitbook-plugin-sectionx \
+        gitbook-plugin-github \
+        gitbook-plugin-favicon \
+        gitbook-plugin-popup \
+        gitbook-plugin-prism \
+        gitbook-plugin-hide-element \
+        gitbook-plugin-theme-fexa && \
     node -v && \
     npm -v && \
     apt-get clean && \
