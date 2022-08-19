@@ -45,22 +45,6 @@ RUN npm install -g cnpm --registry=http://registry.npmmirror.com && \
     export PUPPETEER_SKIP_DOWNLOAD='true' && \
     npm install gitbook-cli -g && \
     npm install svgexport -g && \
-    npm install -g \
-        gitbook-plugin-chapter-fold \
-        gitbook-plugin-search-pro \
-        gitbook-plugin-expandable-chapters \
-        gitbook-plugin-splitter \
-        gitbook-plugin-anchor-navigation-ex \
-        gitbook-plugin-back-to-top-button \
-        gitbook-plugin-expandable-chapters \
-        gitbook-plugin-accordion \
-        gitbook-plugin-sectionx \
-        gitbook-plugin-github \
-        gitbook-plugin-favicon \
-        gitbook-plugin-popup \
-        gitbook-plugin-prism \
-        gitbook-plugin-hide-element \
-        gitbook-plugin-theme-fexa && \
     gitbook ls && \
     sed -i 's/fs.stat\ =\ statFix(fs.stat)/\/\/fs.stat\ =\ statFix(fs.stat)/g' /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
     sed -i 's/fs.fstat\ =\ statFix(fs.fstat)/\/\/fs.fstat\ =\ statFix(fs.fstat)/g' /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
