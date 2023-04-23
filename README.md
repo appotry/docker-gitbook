@@ -4,6 +4,13 @@ A Docker Image for building ebook with [Gitbook](https://github.com/GitbookIO/gi
 
 Docker Hub: [https://hub.docker.com/r/bloodstar/gitbook-builder/](https://hub.docker.com/r/bloodstar/gitbook-builder/)
 
+## debian 加速
+
+```bash
+echo "===add debian 国内源==="
+sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+```
+
 ## Basic
 
 Read the official documentation [GitbookIO/gitbook](https://github.com/GitbookIO/gitbook#how-to-use-it) first.
