@@ -31,7 +31,7 @@ RUN apt-get update && \
 
 # Install Node.js
 # https://github.com/nvm-sh/nvm
-RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - && \
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
     apt-get update && \
     apt-get install -y --no-install-recommends nodejs && \
     npm install -g npm && \
