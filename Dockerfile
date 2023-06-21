@@ -27,6 +27,7 @@ RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y --no-install-recommends procps build-essential ca-certificates openssl openssh-client git bzip2 curl vim yarn && \
     apt-get clean && \
+    strip --remove-section=.note.ABI-tag /usr/lib/x86_64-linux-gnu/libQt5Core.so.5 && \
     rm -rf /var/lib/apt/lists/*
 
 # Install Node.js
