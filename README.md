@@ -52,6 +52,9 @@ gitbook serve
 gitbook build
 # pdf output
 gitbook pdf .
+# epub output
+gitbook epub .
+
 ```
 
 ### Integrate with Gitlab CI

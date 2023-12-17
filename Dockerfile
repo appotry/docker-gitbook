@@ -72,7 +72,7 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-## Install Calibre
+## Install Calibre for epub、pdf
 RUN apt-get update && \
     apt-get install -y --no-install-recommends calibre fonts-noto fonts-noto-cjk locales-all && \
     apt-get clean && \
