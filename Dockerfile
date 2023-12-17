@@ -58,15 +58,15 @@ RUN npm install -g cnpm --registry=http://registry.npmmirror.com && \
     export PUPPETEER_SKIP_DOWNLOAD='true' && \
     npm install gitbook-cli -g && \
     npm install svgexport -g && \
+    sed -i 's/fs.stat\ =\ statFix(fs.stat)/\/\/fs.stat\ =\ statFix(fs.stat)/g' /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
+    sed -i 's/fs.fstat\ =\ statFix(fs.fstat)/\/\/fs.fstat\ =\ statFix(fs.fstat)/g' /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
+    sed -i 's/fs.lstat\ =\ statFix(fs.lstat)/\/\/fs.lstat\ =\ statFix(fs.lstat)/g' /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
+    cat /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
     gitbook ls && \
     gitbook fetch && \
     npm cache clean --force
 
-    # sed -i 's/fs.stat\ =\ statFix(fs.stat)/\/\/fs.stat\ =\ statFix(fs.stat)/g' /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
-    # sed -i 's/fs.fstat\ =\ statFix(fs.fstat)/\/\/fs.fstat\ =\ statFix(fs.fstat)/g' /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
-    # sed -i 's/fs.lstat\ =\ statFix(fs.lstat)/\/\/fs.lstat\ =\ statFix(fs.lstat)/g' /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
-    # cat /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
-    
+
 # ## Install OpenJDK
 RUN apt-get update && \
     apt-get install -y --no-install-recommends openjdk-11-jre-headless  && \
