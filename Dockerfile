@@ -12,6 +12,9 @@ LABEL com.github.actions.color="white"
 
 ENV TZ=Asia/Shanghai
 
+# 设置 PDF 生成时所需环境变量
+ENV QTWEBENGINE_DISABLE_SANDBOX=1
+
 ENV GIT_USERNAME="" \
     GIT_USEREMAIL="" \
     GIT_TOKEN="" \
