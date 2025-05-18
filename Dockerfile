@@ -60,7 +60,7 @@ RUN mkdir -p /etc/apt/keyrings && \
 RUN npm install -g cnpm --registry=http://registry.npmmirror.com && \
     export PUPPETEER_SKIP_DOWNLOAD='true' && \
     npm install gitbook-cli -g && \
-    gitbook fetch && \
+    gitbook fetch 3.2.3 && \
     npm install svgexport -g && \
     sed -i 's/fs.stat\ =\ statFix(fs.stat)/\/\/fs.stat\ =\ statFix(fs.stat)/g' /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
     sed -i 's/fs.fstat\ =\ statFix(fs.fstat)/\/\/fs.fstat\ =\ statFix(fs.fstat)/g' /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
@@ -70,8 +70,11 @@ RUN npm install -g cnpm --registry=http://registry.npmmirror.com && \
     npm cache clean --force
 # gitbook fetch && \
 
-# 设置 GitBook 路径
-ENV GITBOOK_DIR=/usr/local/lib/node_modules/gitbook
+# 设置 GitBook 安装目录为环境变量
+ENV GITBOOK_DIR=$(npm root -g)/gitbook
+
+# 设置 PATH（确保 gitbook 可执行）
+ENV PATH="$PATH:$(npm bin -g)"
 
 # ## Install OpenJDK
 RUN apt-get update && \
