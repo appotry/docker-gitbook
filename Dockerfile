@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim
+FROM debian:bookworm-slim
 MAINTAINER appotry <andycrusoe@gmail.com>
 
 LABEL maintainer="andycrusoe@gmail.com"
@@ -68,7 +68,7 @@ RUN npm install -g cnpm --registry=http://registry.npmmirror.com && \
 
 # ## Install OpenJDK
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends openjdk-11-jre-headless  && \
+    apt-get install -y --no-install-recommends openjdk-17-jre-headless  && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
