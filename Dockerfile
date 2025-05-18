@@ -71,7 +71,7 @@ RUN npm install -g cnpm --registry=http://registry.npmmirror.com && \
 # gitbook fetch && \
 
 # 设置 GitBook 安装目录为环境变量
-ENV GITBOOK_DIR=$(npm root -g)/gitbook
+ENV GITBOOK_DIR=/usr/local/lib/node_modules/gitbook
 
 # 设置 PATH（确保 gitbook 可执行）
 ENV PATH="$PATH:$(npm bin -g)"
