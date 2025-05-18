@@ -17,7 +17,7 @@ ENV GIT_USERNAME="" \
     GIT_TOKEN="" \
     GIT_REPO="" \
     GIT_BRANCH="gh-pages" \
-    GIT_COMMIT_MESSAGE="Gitbook updated:"
+    GIT_COMMIT_MESSAGE="Gitbook updated:" 
 
 ENV NPM_CONFIG_LOGLEVEL info
 
@@ -65,6 +65,9 @@ RUN npm install -g cnpm --registry=http://registry.npmmirror.com && \
     gitbook ls && \
     npm cache clean --force
 # gitbook fetch && \
+
+# 设置 GitBook 路径
+ENV GITBOOK_DIR=/usr/local/lib/node_modules/gitbook
 
 # ## Install OpenJDK
 RUN apt-get update && \
