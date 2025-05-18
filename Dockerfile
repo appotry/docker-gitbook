@@ -65,7 +65,7 @@ RUN npm install -g cnpm --registry=http://registry.npmmirror.com && \
     sed -i 's/fs.fstat\ =\ statFix(fs.fstat)/\/\/fs.fstat\ =\ statFix(fs.fstat)/g' /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
     sed -i 's/fs.lstat\ =\ statFix(fs.lstat)/\/\/fs.lstat\ =\ statFix(fs.lstat)/g' /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
     cat /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
-    gitbook --version &&\
+    gitbook --version && \
     gitbook ls && \
     npm cache clean --force
 # gitbook fetch && \
