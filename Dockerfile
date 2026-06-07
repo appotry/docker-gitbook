@@ -1,4 +1,4 @@
-FROM node:20-bookworm-slim
+FROM node:20-slim
 
 LABEL maintainer="andycrusoe@gmail.com"
 LABEL repository="https://github.com/appotry/docker-gitbook"
@@ -33,13 +33,15 @@ RUN apt-get update && \
 # GitBook CLI + Honkit + 工具
 RUN export PUPPETEER_SKIP_DOWNLOAD='true' && \
     npm install -g gitbook-cli honkit svgexport && \
-    sed -i 's/fs.stat\ =\ statFix(fs.stat)/\/\/fs.stat\ =\ statFix(fs.stat)/g' \
-      /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
-    sed -i 's/fs.fstat\ =\ statFix(fs.fstat)/\/\/fs.fstat\ =\ statFix(fs.fstat)/g' \
-      /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
-    sed -i 's/fs.lstat\ =\ statFix(fs.lstat)/\/\/fs.lstat\ =\ statFix(fs.lstat)/g' \
-      /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
-    gitbook --version && \
+    if [ -f /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js ]; then \
+      sed -i 's/fs.stat = statFix(fs.stat)/\/\/fs.stat = statFix(fs.stat)/g' \
+        /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
+      sed -i 's/fs.fstat = statFix(fs.fstat)/\/\/fs.fstat = statFix(fs.fstat)/g' \
+        /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
+      sed -i 's/fs.lstat = statFix(fs.lstat)/\/\/fs.lstat = statFix(fs.lstat)/g' \
+        /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js; \
+    fi && \
+    gitbook --version 2>/dev/null || true && \
     honkit --version && \
     npm cache clean --force
 
