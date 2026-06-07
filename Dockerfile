@@ -1,5 +1,4 @@
 FROM debian:bookworm-slim
-MAINTAINER appotry <andycrusoe@gmail.com>
 
 LABEL maintainer="andycrusoe@gmail.com"
 LABEL repository="https://github.com/appotry/docker-gitbook"
@@ -15,14 +14,15 @@ ENV TZ=Asia/Shanghai
 # 设置 PDF 生成时所需环境变量
 ENV QTWEBENGINE_DISABLE_SANDBOX=1
 
+# 运行时环境变量（入口脚本使用，默认禁用）
 ENV GIT_USERNAME="" \
     GIT_USEREMAIL="" \
     GIT_TOKEN="" \
     GIT_REPO="" \
     GIT_BRANCH="gh-pages" \
-    GIT_COMMIT_MESSAGE="Gitbook updated:" 
+    GIT_COMMIT_MESSAGE="Gitbook updated:"
 
-ENV NPM_CONFIG_LOGLEVEL info
+ENV NPM_CONFIG_LOGLEVEL=info
 
 # 默认空 = 使用 npm 官方源，用户可在运行时通过 -e NPM_CONFIG_REGISTRY=<mirror> 切换
 ENV NPM_CONFIG_REGISTRY=""
@@ -91,7 +91,7 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-ENV BOOKDIR /gitbook
+ENV BOOKDIR=/gitbook
 
 VOLUME $BOOKDIR
 
