@@ -14,8 +14,7 @@ Single-purpose repo: **Docker image** for building GitBook ebooks. No app code, 
 
 ## Dockerfile quirks
 
-- Base: `debian:bookworm-slim`
-- Node.js 20 installed via NodeSource (nodesource.com), not nvm
+- Base: `node:20-bookworm-slim` (Debian-based with Node.js 20 pre-installed, no NodeSource needed)
 - GitBook CLI patched at build time: three `graceful-fs/polyfills.js` lines are commented out with `sed` (prevents crash on newer Node)
 - **Honkit** (community-maintained GitBook fork) also installed as `honkit` — drop-in replacement, same `book.json` format
 - `PUPPETEER_SKIP_DOWNLOAD=true` set during npm installs
