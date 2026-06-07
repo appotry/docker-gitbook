@@ -7,8 +7,8 @@
 ## 技术栈
 
 ```
-node:20-bookworm-slim
-├── Node.js 20          # 自带，无需 nvm 或 NodeSource
+node:20-slim
+├── Node.js 20          # 自带，跟踪最新 Debian 稳定版
 ├── GitBook CLI         # 经典版本，已打补丁兼容 Node.js 20
 ├── Honkit              # 社区维护版本，与 GitBook 完全兼容
 ├── OpenJDK 17 JRE      # 用于 PlantUML 插件
@@ -20,7 +20,7 @@ node:20-bookworm-slim
 
 ## 构建流程
 
-1. `node:20-bookworm-slim` 基础镜像（自带 Node.js 20）
+1. `node:20-slim` 基础镜像（自带 Node.js 20，跟踪最新 Debian 稳定版）
 2. 安装系统包：OpenJDK 17、Calibre、Graphviz、Noto CJK 字体（合并为 1 层）
 3. 安装 npm 全局包：gitbook-cli、honkit、svgexport、cnpm
 4. 修补 gitbook-cli 自带的 graceful-fs（注释 3 处 statFix 代码）
