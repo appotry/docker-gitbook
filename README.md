@@ -4,7 +4,16 @@
   <a href="README.md">中文</a> ·
   <a href="README.en.md">English</a> ·
   <a href="README.ja.md">日本語</a> ·
-  <a href="README.ko.md">한국어</a>
+  <a href="README.ko.md">한국어</a> ·
+  <a href="README.es.md">Español</a> ·
+  <a href="README.hi.md">हिन्दी</a> ·
+  <a href="README.ar.md">العربية</a>
+  <br>
+  <a href="README.pt.md">Português</a> ·
+  <a href="README.bn.md">বাংলা</a> ·
+  <a href="README.ru.md">Русский</a> ·
+  <a href="README.fr.md">Français</a> ·
+  <a href="README.de.md">Deutsch</a>
 </p>
 
 用于构建 [GitBook](https://github.com/GitbookIO/gitbook) 电子书的 Docker 镜像，内置 [Honkit](https://github.com/honkit/honkit)（社区维护的 GitBook 分支）、CJK 字体、PlantUML 支持。
@@ -100,6 +109,7 @@ docker run --rm -v "$PWD":/gitbook \
 
 | 文档 | 内容 |
 |------|------|
+| [docs/GUIDE.md](docs/GUIDE.md) | 详细使用指南、插件配置、镜像加速 |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | 组件关系、技术栈、构建流程 |
 | [docs/REQUIREMENTS.md](docs/REQUIREMENTS.md) | 功能与非功能需求 |
 | [docs/TESTING.md](docs/TESTING.md) | 构建验证与测试方法 |
@@ -107,3 +117,11 @@ docker run --rm -v "$PWD":/gitbook \
 | [README.en.md](README.en.md) | English |
 | [README.ja.md](README.ja.md) | 日本語 |
 | [README.ko.md](README.ko.md) | 한국어 |
+| [README.es.md](README.es.md) | Español |
+| [README.hi.md](README.hi.md) | हिन्दी |
+| [README.ar.md](README.ar.md) | العربية |
+| [README.pt.md](README.pt.md) | Português |
+| [README.bn.md](README.bn.md) | বাংলা |
+| [README.ru.md](README.ru.md) | Русский |
+| [README.fr.md](README.fr.md) | Français |
+| [README.de.md](README.de.md) | Deutsch |

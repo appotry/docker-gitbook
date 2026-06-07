@@ -4,7 +4,16 @@
   <a href="README.md">中文</a> ·
   <a href="README.en.md">English</a> ·
   <a href="README.ja.md">日本語</a> ·
-  <a href="README.ko.md">한국어</a>
+  <a href="README.ko.md">한국어</a> ·
+  <a href="README.es.md">Español</a> ·
+  <a href="README.hi.md">हिन्दी</a> ·
+  <a href="README.ar.md">العربية</a>
+  <br>
+  <a href="README.pt.md">Português</a> ·
+  <a href="README.bn.md">বাংলা</a> ·
+  <a href="README.ru.md">Русский</a> ·
+  <a href="README.fr.md">Français</a> ·
+  <a href="README.de.md">Deutsch</a>
 </p>
 
 [GitBook](https://github.com/GitbookIO/gitbook) 전자책을 빌드하기 위한 Docker 이미지.[Honkit](https://github.com/honkit/honkit)(커뮤니티 유지보수 GitBook 포크), CJK 폰트, PlantUML 지원을 내장.
@@ -82,9 +91,18 @@ docker run --rm -v "$PWD":/gitbook \
 
 | 문서 | 내용 |
 |---|---|
+| [docs/GUIDE.md](docs/GUIDE.md) | 상세 사용법, 플러그인, 미러 설정 |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | 구성 요소, 기술 스택, 빌드 흐름 |
 | [docs/TESTING.md](docs/TESTING.md) | 빌드 검증 및 테스트 방법 |
 | [docs/CHANGELOG.md](docs/CHANGELOG.md) | 버전 기록 |
 | [README.md](README.md) | 中文 |
 | [README.en.md](README.en.md) | English |
 | [README.ja.md](README.ja.md) | 日本語 |
+| [README.es.md](README.es.md) | Español |
+| [README.hi.md](README.hi.md) | हिन्दी |
+| [README.ar.md](README.ar.md) | العربية |
+| [README.pt.md](README.pt.md) | Português |
+| [README.bn.md](README.bn.md) | বাংলা |
+| [README.ru.md](README.ru.md) | Русский |
+| [README.fr.md](README.fr.md) | Français |
+| [README.de.md](README.de.md) | Deutsch |

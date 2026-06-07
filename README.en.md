@@ -4,7 +4,16 @@
   <a href="README.md">中文</a> ·
   <a href="README.en.md">English</a> ·
   <a href="README.ja.md">日本語</a> ·
-  <a href="README.ko.md">한국어</a>
+  <a href="README.ko.md">한국어</a> ·
+  <a href="README.es.md">Español</a> ·
+  <a href="README.hi.md">हिन्दी</a> ·
+  <a href="README.ar.md">العربية</a>
+  <br>
+  <a href="README.pt.md">Português</a> ·
+  <a href="README.bn.md">বাংলা</a> ·
+  <a href="README.ru.md">Русский</a> ·
+  <a href="README.fr.md">Français</a> ·
+  <a href="README.de.md">Deutsch</a>
 </p>
 
 Docker image for building [GitBook](https://github.com/GitbookIO/gitbook) ebooks, bundled with [Honkit](https://github.com/honkit/honkit) (community-maintained GitBook fork), CJK fonts, and PlantUML support.
@@ -100,6 +109,7 @@ docker run --rm -v "$PWD":/gitbook \
 
 | Document | Description |
 |----------|-------------|
+| [docs/GUIDE.md](docs/GUIDE.md) | Detailed usage, plugins, mirror setup |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Components, tech stack, build flow |
 | [docs/REQUIREMENTS.md](docs/REQUIREMENTS.md) | Functional and non-functional requirements |
 | [docs/TESTING.md](docs/TESTING.md) | Build verification and test methods |
@@ -107,3 +117,11 @@ docker run --rm -v "$PWD":/gitbook \
 | [README.md](README.md) | 中文 |
 | [README.ja.md](README.ja.md) | 日本語 |
 | [README.ko.md](README.ko.md) | 한국어 |
+| [README.es.md](README.es.md) | Español |
+| [README.hi.md](README.hi.md) | हिन्दी |
+| [README.ar.md](README.ar.md) | العربية |
+| [README.pt.md](README.pt.md) | Português |
+| [README.bn.md](README.bn.md) | বাংলা |
+| [README.ru.md](README.ru.md) | Русский |
+| [README.fr.md](README.fr.md) | Français |
+| [README.de.md](README.de.md) | Deutsch |

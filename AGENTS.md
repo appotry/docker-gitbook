@@ -62,12 +62,13 @@ honkit epub
 - `renovate.json` — Renovate base config for dependency updates
 - `entrypoint.sh` — full automation script (SSH keys, git config, user hooks); contains large commented-out `deploy`/`server` functions
 - `tests/docker_test.sh` — standalone smoke test script (build + CLI verification), generates report at `tests/reports/test-report-<timestamp>.log`
-- `README.en.md` / `README.ja.md` / `README.ko.md` — multi-language README translations
+- `README.en.md` / `README.ja.md` / `README.ko.md` / `README.es.md` / `README.hi.md` / `README.ar.md` / `README.pt.md` / `README.bn.md` / `README.ru.md` / `README.fr.md` / `README.de.md` — multi-language README translations (12 languages)
 
 ## 文档导航
 
 | 文档 | 内容 |
 |------|------|
+| `docs/GUIDE.md` | GitBook/Honkit 详细用法、插件配置、镜像加速 |
 | `docs/ARCHITECTURE.md` | 组件关系、技术栈、构建流程、设计决策 |
 | `docs/REQUIREMENTS.md` | 功能与非功能需求 |
 | `docs/TESTING.md` | 构建验证、运行时测试、自动测试脚本用法 |
