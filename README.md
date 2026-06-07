@@ -1,114 +1,109 @@
 # docker-gitbook-builder
 
-A Docker Image for building ebook with [Gitbook](https://github.com/GitbookIO/gitbook) and [Noto CJK Fonts](https://www.google.com/get/noto/).
+<p align="center">
+  <a href="README.md">中文</a> ·
+  <a href="README.en.md">English</a> ·
+  <a href="README.ja.md">日本語</a> ·
+  <a href="README.ko.md">한국어</a>
+</p>
 
-- Docker Hub: [https://hub.docker.com/r/bloodstar/gitbook-builder/](https://hub.docker.com/r/bloodstar/gitbook-builder/)
-- Github: [docker-gitbook](https://github.com/appotry/docker-gitbook)
+用于构建 [GitBook](https://github.com/GitbookIO/gitbook) 电子书的 Docker 镜像，内置 [Honkit](https://github.com/honkit/honkit)（社区维护的 GitBook 分支）、CJK 字体、PlantUML 支持。
 
-## debian 加速
+[![Docker Image](https://img.shields.io/docker/pulls/bloodstar/gitbook-builder)](https://hub.docker.com/r/bloodstar/gitbook-builder)
 
-```bash
-echo "===add debian 国内源==="
-sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
-```
-
-## Basic
-
-Read the official documentation [GitbookIO/gitbook](https://github.com/GitbookIO/gitbook#how-to-use-it) first.
-
-> Docker Pull
+## 快速开始
 
 ```bash
 docker pull bloodstar/gitbook-builder
-```
 
-```bash
-# run
-docker run -ti --name="gitbook-builder" -v "$PWD:/gitbook" bloodstar/gitbook-builder /bin/bash
-```
-
-## Usage
-
-Read the official [GitBook Toolchain Documentation](http://toolchain.gitbook.com/) documentation [GitbookIO/gitbook](https://github.com/GitbookIO/gitbook#how-to-use-it) first.
-
-```bash
-# init
+# 初始化
 docker run --rm -v "$PWD:/gitbook" -p 4000:4000 bloodstar/gitbook-builder gitbook init
-# serve
+# 预览
 docker run --rm -v "$PWD:/gitbook" -p 4000:4000 bloodstar/gitbook-builder gitbook serve
-# build
+# 构建
 docker run --rm -v "$PWD:/gitbook" -p 4000:4000 bloodstar/gitbook-builder gitbook build
 ```
 
-For short, you can use alias for the long command line text. Place the alias statement in your `.bashrc` or `.zshrc`.
+推荐添加别名到 `.bashrc` 或 `.zshrc`：
 
 ```bash
 alias gitbook='docker run --rm -v "$PWD":/gitbook -p 4000:4000 bloodstar/gitbook-builder gitbook'
-# init
-gitbook init
-# serve
-gitbook serve
-# build
-gitbook build
-# pdf output
-gitbook pdf .
-# epub output
-gitbook epub .
-
+alias honkit='docker run --rm -v "$PWD":/gitbook -p 4000:4000 bloodstar/gitbook-builder honkit'
 ```
 
-### Integrate with Gitlab CI
+## 功能特性
 
-This docker image is originally designed for generating ebook with [Gitlab CI](https://about.gitlab.com/gitlab-ci/). You could configure your Gitlab CI as following:
+| 功能 | 说明 |
+|------|------|
+| **GitBook CLI** | 经典版本，已打补丁兼容 Node.js 20 |
+| **Honkit** | 社区维护版本，与 GitBook CLI 命令和 book.json 完全兼容 |
+| **PlantUML 图表** | 基于 OpenJDK 17 + Graphviz |
+| **PDF/EPUB 输出** | 内置 Calibre 转换引擎 |
+| **CJK 字体** | Noto Sans CJK，中日韩文字正确渲染 |
+| **多架构** | linux/amd64, linux/arm/v7, linux/arm64 |
+| **CN 加速** | 内置 cnpm 工具；设置环境变量 `NPM_CONFIG_REGISTRY` 可切换 npm 镜像源 |
 
-```yml
+## 使用示例
+
+```bash
+# GitBook（经典）
+gitbook init
+gitbook serve    # 访问 http://localhost:4000
+gitbook build
+gitbook pdf .    # 输出 PDF
+gitbook epub .   # 输出 EPUB
+
+# Honkit（推荐）
+honkit init
+honkit serve     # 访问 http://localhost:4000
+honkit build
+honkit pdf .
+honkit epub .
+```
+
+## GitLab CI 集成
+
+```yaml
+image: bloodstar/gitbook-builder:latest
+
 before_script:
-  - env
   - export LC_ALL=zh_CN.UTF-8
 
-stages:
-  - build
-
 ebook:
-  stage: build
-  script:
-    - gitbook pdf
+  script: gitbook pdf
   artifacts:
     paths:
       - book.pdf
-  only:
-    - master
-  tags:
-    - gitbook
-  image: bloodstar/gitbook-builder:latest
-  allow_failure: true
 ```
 
-## Additional Features
+## Docker Hub
 
-This docker image also has [OpenJDK 17](http://openjdk.java.net) installed. The Java runtime allows you to run Gitbook [PlantUML](http://plantuml.com) plugin.
+- 镜像：`bloodstar/gitbook-builder`
+- 自动标签：`latest`、`gitbook-<版本>`、`honkit-<主版本>`、`honkit-<主>.<次>`、`honkit-<完整版本>`
+- 版本标签（推送 git tag 时）：`v<语义化版本>`（如 `v0.2.0`）
+- [查看所有标签](https://hub.docker.com/r/bloodstar/gitbook-builder/tags)
 
-## Customization
+## 环境变量
 
-To install your own favorite fonts, add the following RUN command in Dockerfile
+| 变量 | 默认值 | 说明 |
+|------|--------|------|
+| `NPM_CONFIG_REGISTRY` | （空，使用 npm 官方源） | npm 镜像源地址。国内用户可设为 `https://registry.npmmirror.com` |
 
 ```bash
-## Install Fonts
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends your-favorite-fonts && \
-    rm -rf /var/lib/apt/lists/*
+# 示例：使用淘宝 npm 镜像
+docker run --rm -v "$PWD":/gitbook \
+  -e NPM_CONFIG_REGISTRY=https://registry.npmmirror.com \
+  bloodstar/gitbook-builder honkit install
 ```
 
-## Acknowledge
+## 相关文档
 
-The project is sponsored under **Productivity Side Project** plan of [ECOWORK Inc.](http://www.ecowork.com/)
-
-[ECOWORK](http://www.ecowork.com/) is a Taiwan-based software and service company and is also hiring now:
-
-* **Cloud Architect**, Cloud Arch Team
-* **Cloud Platform Engineer**, Cloud Arch Team
-* **iOS/Android Engineer,** Mobile Team
-* **Ruby/Go/Node Engineer**, Application Team
-* **Operation Engineer**, Service Team
-
-The working location of the above opportunities is Taipei, Taiwan. Resume and inquiry are welcome to resume@ecoworkinc.com.
+| 文档 | 内容 |
+|------|------|
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | 组件关系、技术栈、构建流程 |
+| [docs/REQUIREMENTS.md](docs/REQUIREMENTS.md) | 功能与非功能需求 |
+| [docs/TESTING.md](docs/TESTING.md) | 构建验证与测试方法 |
+| [docs/CHANGELOG.md](docs/CHANGELOG.md) | 版本变更历史 |
+| [README.en.md](README.en.md) | English |
+| [README.ja.md](README.ja.md) | 日本語 |
+| [README.ko.md](README.ko.md) | 한국어 |

@@ -24,6 +24,9 @@ ENV GIT_USERNAME="" \
 
 ENV NPM_CONFIG_LOGLEVEL info
 
+# 默认空 = 使用 npm 官方源，用户可在运行时通过 -e NPM_CONFIG_REGISTRY=<mirror> 切换
+ENV NPM_CONFIG_REGISTRY=""
+
 # build-essential
 # Install Utilities
 RUN apt-get update && \
@@ -56,17 +59,17 @@ RUN mkdir -p /etc/apt/keyrings && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-## Install Gitbook
-RUN npm install -g cnpm --registry=http://registry.npmmirror.com && \
+## Install Gitbook & Honkit
+RUN npm install -g cnpm && \
     export PUPPETEER_SKIP_DOWNLOAD='true' && \
     npm install gitbook-cli -g && \
+    npm install honkit -g && \
     npm install svgexport -g && \
     sed -i 's/fs.stat\ =\ statFix(fs.stat)/\/\/fs.stat\ =\ statFix(fs.stat)/g' /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
     sed -i 's/fs.fstat\ =\ statFix(fs.fstat)/\/\/fs.fstat\ =\ statFix(fs.fstat)/g' /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
     sed -i 's/fs.lstat\ =\ statFix(fs.lstat)/\/\/fs.lstat\ =\ statFix(fs.lstat)/g' /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
-    cat /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
     gitbook --version && \
-    gitbook ls && \
+    honkit --version && \
     npm cache clean --force
 # gitbook fetch && \
 
