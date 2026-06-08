@@ -1,0 +1,17 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+      time: "02:00"
+      timezone: "Asia/Shanghai"
+    open-pull-requests-limit: 2
+    labels:
+      - "dependencies"
+      - "automerge"
+    # Only watch the two packages relevant to the Docker image
+    allow:
+      - dependency-name: "gitbook-cli"
+      - dependency-name: "honkit"

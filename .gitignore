@@ -12,3 +12,7 @@ Thumbs.db
 
 # Test reports
 tests/reports/
+
+# Dependabot trigger manifest (not a real Node project)
+node_modules/
+package-lock.json

@@ -7,6 +7,7 @@
 - 📄 PDF 目录页码深度配置支持（book.json 新增 `pdf.tocDepth` / `pdf.tocTitle`）
 - 🌍 多语言 README 选择器添加国旗 emoji
 - 🎨 全文档体系添加 emoji 装饰（README、docs/*、AGENTS、DOCKER_README）
+- 🤖 Dependabot 自动构建：`package.json` + Dependabot 监听 gitbook-cli/honkit 新版本，合并 PR 即触发镜像构建
 
 ### Changed
 
@@ -14,6 +15,7 @@
 - 📝 ARCHITECTURE.md：更新技术栈为 node:20-slim，移除已删除环境变量引用，同步 cnpm 移除
 - 📝 AGENTS.md：同步移除已删除环境变量
 - 📝 REQUIRMENTS.md：N4 需求改为 NPM_CONFIG_REGISTRY
+- ⚙️ CI 触发策略：移除每周定时构建，改为 Dependabot 按需触发
 
 ## [0.2.0] — 2026-06-08
 

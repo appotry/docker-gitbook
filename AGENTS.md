@@ -5,7 +5,8 @@ Single-purpose repo: **Docker image** for building GitBook ebooks. No app code, 
 ## 📦 Build & CI
 
 - Image: `bloodstar/gitbook-builder` (Docker Hub)
-- CI: `.github/workflows/Build Image.yml` — runs on push to `main`/`master`, tag push `v*`, weekly (Sun 1:10 UTC), and `workflow_dispatch`
+- CI: `.github/workflows/Build Image.yml` — runs on push to `main`/`master` (incl. Dependabot merges), tag push `v*`, and `workflow_dispatch`
+- Build trigger: `package.json` with `gitbook-cli` + `honkit` deps + Dependabot auto-PR on new versions
 - Multi-arch: `linux/amd64`, `linux/arm/v7`, `linux/arm64` via QEMU + Buildx
 - Secrets required: `DOCKER_USERNAME`, `DOCKER_PASSWORD`
 - Tags (auto): `latest`, `gitbook-<version>`, `honkit-<major>`, `honkit-<major>.<minor>`, `honkit-<full>`
@@ -58,7 +59,9 @@ honkit epub
 ## 📄 Notable files
 
 - `book.json` — default GitBook config (Chinese, Prism, page-treeview, tbfed-pagefooter, favicon plugins)
-- `renovate.json` — Renovate base config for dependency updates
+- `package.json` — Dependabot trigger manifest (monitors `gitbook-cli` + `honkit` versions)
+- `.github/dependabot.yml` — Dependabot config, weekly check for npm updates, auto-PR on new versions
+- `entrypoint.sh` — full automation script (SSH keys, git config, user hooks); contains large commented-out `deploy`/`server` functions
 - `entrypoint.sh` — full automation script (SSH keys, git config, user hooks); contains large commented-out `deploy`/`server` functions
 - `tests/docker_test.sh` — standalone smoke test script (build + CLI verification), generates report at `tests/reports/test-report-<timestamp>.log`
 - `README.en.md` / `README.ja.md` / `README.ko.md` / `README.es.md` / `README.hi.md` / `README.ar.md` / `README.pt.md` / `README.bn.md` / `README.ru.md` / `README.fr.md` / `README.de.md` — multi-language README translations (12 languages)

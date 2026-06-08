@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "description": "Dependency manifest for Dependabot — monitors gitbook-cli and honkit versions to trigger Docker image rebuilds",
+  "dependencies": {
+    "gitbook-cli": "2.3.2",
+    "honkit": "6.2.1"
+  }
+}
