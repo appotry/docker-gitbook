@@ -1,26 +1,26 @@
 # docker-gitbook-builder
 
 <p align="center">
-  <a href="README.md">中文</a> ·
-  <a href="README.en.md">English</a> ·
-  <a href="README.ja.md">日本語</a> ·
-  <a href="README.ko.md">한국어</a> ·
-  <a href="README.es.md">Español</a> ·
-  <a href="README.hi.md">हिन्दी</a> ·
-  <a href="README.ar.md">العربية</a>
+  <a href="README.md">🇨🇳 中文</a> ·
+  <a href="README.en.md">🇬🇧 English</a> ·
+  <a href="README.ja.md">🇯🇵 日本語</a> ·
+  <a href="README.ko.md">🇰🇷 한국어</a> ·
+  <a href="README.es.md">🇪🇸 Español</a> ·
+  <a href="README.hi.md">🇮🇳 हिन्दी</a> ·
+  <a href="README.ar.md">🇸🇦 العربية</a>
   <br>
-  <a href="README.pt.md">Português</a> ·
-  <a href="README.bn.md">বাংলা</a> ·
-  <a href="README.ru.md">Русский</a> ·
-  <a href="README.fr.md">Français</a> ·
-  <a href="README.de.md">Deutsch</a>
+  <a href="README.pt.md">🇵🇹 Português</a> ·
+  <a href="README.bn.md">🇧🇩 বাংলা</a> ·
+  <a href="README.ru.md">🇷🇺 Русский</a> ·
+  <a href="README.fr.md">🇫🇷 Français</a> ·
+  <a href="README.de.md">🇩🇪 Deutsch</a>
 </p>
 
 用于构建 [GitBook](https://github.com/GitbookIO/gitbook) 电子书的 Docker 镜像，内置 [Honkit](https://github.com/honkit/honkit)（社区维护的 GitBook 分支）、CJK 字体、PlantUML 支持。
 
 [![Docker Image](https://img.shields.io/docker/pulls/bloodstar/gitbook-builder)](https://hub.docker.com/r/bloodstar/gitbook-builder)
 
-## 快速开始
+## 🚀 快速开始
 
 ```bash
 docker pull bloodstar/gitbook-builder
@@ -52,7 +52,7 @@ alias honkit='docker run --rm -v "$PWD":/gitbook -p 4000:4000 bloodstar/gitbook-
 | **多架构** | linux/amd64, linux/arm/v7, linux/arm64 |
 | **CN 加速** | 内置 cnpm 工具；设置环境变量 `NPM_CONFIG_REGISTRY` 可切换 npm 镜像源 |
 
-## 使用示例
+## 📖 使用示例
 
 ```bash
 # GitBook（经典）
@@ -92,7 +92,7 @@ ebook:
 - 版本标签（推送 git tag 时）：`v<语义化版本>`（如 `v0.2.0`）
 - [查看所有标签](https://hub.docker.com/r/bloodstar/gitbook-builder/tags)
 
-## 环境变量
+## ⚙️ 环境变量
 
 | 变量 | 默认值 | 说明 |
 |------|--------|------|

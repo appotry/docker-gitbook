@@ -1,4 +1,19 @@
-# Changelog
+# 📝 Changelog
+
+## [0.3.0] — 2026-06-08
+
+### Added
+
+- 📄 PDF 目录页码深度配置支持（book.json 新增 `pdf.tocDepth` / `pdf.tocTitle`）
+- 🌍 多语言 README 选择器添加国旗 emoji
+- 🎨 全文档体系添加 emoji 装饰（README、docs/*、AGENTS、DOCKER_README）
+
+### Changed
+
+- 🧹 移除 6 个冗余 GIT_* ENV 变量（GIT_USERNAME、GIT_USEREMAIL、GIT_TOKEN、GIT_REPO、GIT_BRANCH、GIT_COMMIT_MESSAGE），entrypoint.sh 清理对应死代码
+- 📝 ARCHITECTURE.md：更新技术栈为 node:20-slim，移除已删除环境变量引用，同步 cnpm 移除
+- 📝 AGENTS.md：同步移除已删除环境变量
+- 📝 REQUIRMENTS.md：N4 需求改为 NPM_CONFIG_REGISTRY
 
 ## [0.2.0] — 2026-06-08
 

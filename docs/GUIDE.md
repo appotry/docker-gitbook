@@ -1,6 +1,6 @@
 # GitBook / Honkit 使用指南
 
-## 基本命令
+## 💻 基本命令
 
 ```bash
 # 初始化项目
@@ -23,7 +23,7 @@ honkit pdf .
 honkit epub .
 ```
 
-## 插件系统
+## 🔌 插件系统
 
 GitBook 和 Honkit 通过 `book.json` 配置插件。
 
@@ -83,7 +83,7 @@ honkit serve
 
 无需修改任何配置文件。
 
-## 镜像加速
+## 🚀 镜像加速
 
 ### 方式一：环境变量（推荐）
 
@@ -113,7 +113,7 @@ docker run --rm -v "$PWD":/gitbook \
   bloodstar/gitbook-builder npm install
 ```
 
-## 常见问题
+## ❓ 常见问题
 
 ### 构建报错 `cb() never called`
 
@@ -143,7 +143,7 @@ RUN apt-get install -y fonts-noto-cjk
 
 PlantUML 需要 Java 和 Graphviz，均已预装在此镜像中。
 
-### PDF 目录页码深度不足
+### 📄 PDF 目录页码深度不足
 
 默认情况下，GitBook CLI 和 Honkit 生成的 PDF 文件，目录（TOC）只显示 **二级（H2）标题的页码**，三级及以下（H3+）标题有文字但**无页码**。
 

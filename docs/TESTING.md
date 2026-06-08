@@ -2,7 +2,7 @@
 
 本项目是一个 Docker 镜像——没有应用程序代码。测试重点在于构建成功和 CLI 工具可用性。
 
-## 构建验证
+## 🔨 构建验证
 
 ```bash
 docker build -t gitbook-builder:test .
@@ -10,9 +10,9 @@ docker build -t gitbook-builder:test .
 
 预期结果：退出码 0，无报错。
 
-## 运行时冒烟测试
+## 🔥 运行时冒烟测试
 
-### 验证 CLI 工具
+### 🛠️ 验证 CLI 工具
 
 ```bash
 # GitBook CLI
@@ -32,7 +32,7 @@ docker run --rm gitbook-builder:test java --version
 docker run --rm gitbook-builder:test ebook-convert --version
 ```
 
-### 完整电子书构建测试
+### 📖 完整电子书构建测试
 
 ```bash
 # 初始化测试书籍并构建所有格式
@@ -42,7 +42,7 @@ docker run --rm -v "$PWD":/gitbook gitbook-builder:test honkit pdf .
 docker run --rm -v "$PWD":/gitbook gitbook-builder:test honkit epub .
 ```
 
-## 自动化测试脚本
+## 🤖 自动化测试脚本
 
 `tests/docker_test.sh` 自动执行构建 + CLI 冒烟测试。在项目根目录运行：
 
@@ -52,7 +52,7 @@ bash tests/docker_test.sh
 
 该脚本独立运行，不依赖 CI 环境。
 
-## 测试报告
+## 📊 测试报告
 
 每次运行自动生成测试报告到 `tests/reports/test-report-<时间戳>.log`，包含：
 

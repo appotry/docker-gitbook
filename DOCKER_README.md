@@ -9,7 +9,7 @@ Docker 镜像，用于构建 GitBook / Honkit 电子书。内置 Calibre、Plant
 
 ---
 
-## Quick Start
+## 🚀 Quick Start
 
 ```bash
 docker pull bloodstar/gitbook-builder
@@ -31,7 +31,7 @@ alias gitbook='docker run --rm -v "$PWD":/gitbook -p 4000:4000 bloodstar/gitbook
 alias honkit='docker run --rm -v "$PWD":/gitbook -p 4000:4000 bloodstar/gitbook-builder honkit'
 ```
 
-## Environment Variables
+## ⚙️ Environment Variables
 
 | Variable | Default | Description |
 |----------|---------|-------------|
@@ -43,7 +43,7 @@ docker run --rm -v "$PWD":/gitbook \
   bloodstar/gitbook-builder npm install
 ```
 
-## Features
+## ✨ Features
 
 - **GitBook CLI** — Classic version, patched for Node.js 20
 - **Honkit** — Community-maintained fork, drop-in replacement
@@ -53,7 +53,7 @@ docker run --rm -v "$PWD":/gitbook \
 - **Multi-arch** — linux/amd64, linux/arm/v7, linux/arm64
 - **cnpm** — Pre-installed for Chinese mirror users
 
-## Tags
+## 🏷️ Tags
 
 | Tag | Description |
 |-----|-------------|
@@ -64,7 +64,7 @@ docker run --rm -v "$PWD":/gitbook \
 | `gitbook-<version>` | GitBook CLI version (e.g. `gitbook-2.3.2`) |
 | `v<semver>` | Release tag on git tag push (e.g. `v0.2.0`) |
 
-## Documentation
+## 📚 Documentation
 
 | Document | Link |
 |----------|------|
@@ -86,7 +86,7 @@ docker run --rm -v "$PWD":/gitbook \
 | Français | [README.fr.md](https://github.com/appotry/docker-gitbook/blob/master/README.fr.md) |
 | Deutsch | [README.de.md](https://github.com/appotry/docker-gitbook/blob/master/README.de.md) |
 
-## Resources
+## 🔗 Resources
 
 - [GitHub Repository](https://github.com/appotry/docker-gitbook)
 - [Docker Hub Tags](https://hub.docker.com/r/bloodstar/gitbook-builder/tags)

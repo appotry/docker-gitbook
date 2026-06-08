@@ -2,7 +2,7 @@
 
 Single-purpose repo: **Docker image** for building GitBook ebooks. No app code, no linter.
 
-## Build & CI
+## 📦 Build & CI
 
 - Image: `bloodstar/gitbook-builder` (Docker Hub)
 - CI: `.github/workflows/Build Image.yml` — runs on push to `main`/`master`, tag push `v*`, weekly (Sun 1:10 UTC), and `workflow_dispatch`
@@ -12,7 +12,7 @@ Single-purpose repo: **Docker image** for building GitBook ebooks. No app code, 
 - Tags (git tag push): `v<semver>` (e.g. `v0.2.0`)
 - No local build shortcut; use `docker buildx build` or just `docker build .` for single-arch testing
 
-## Dockerfile quirks
+## 🐳 Dockerfile quirks
 
 - Base: `node:20-slim` (Debian-based with Node.js 20 pre-installed, tracks latest Debian stable)
 - GitBook CLI patched at build time: three `graceful-fs/polyfills.js` lines are commented out with `sed` (prevents crash on newer Node)
@@ -22,14 +22,14 @@ Single-purpose repo: **Docker image** for building GitBook ebooks. No app code, 
 - Noto CJK fonts included
 - **npm 镜像源**（运行时）：默认使用官方源。设置 `-e NPM_CONFIG_REGISTRY=https://registry.npmmirror.com` 切换淘宝镜像
 
-## Runtime behavior
+## ⚙️ Runtime behavior
 
 - Default `CMD`: `gitbook --help` (also `honkit` is available)
 - `ENTRYPOINT` (`entrypoint.sh`) is **commented out** — not active
 - `entrypoint.sh` (if enabled): sets up SSH keys, git config, runs `userRun.sh` for npm/yarn cache setup
 - `volumes`: `/gitbook` (workspace); exposed port: `4000`
 
-## Usage (from outside container)
+## 💻 Usage (from outside container)
 
 ```bash
 # Aliases for convenience
@@ -51,11 +51,11 @@ honkit pdf
 honkit epub
 ```
 
-## Key env vars
+## 🔑 Key env vars
 
-`GIT_USERNAME`, `GIT_USEREMAIL`, `GIT_TOKEN`, `GIT_REPO`, `GIT_BRANCH` (default `gh-pages`), `GIT_COMMIT_MESSAGE`
+`NPM_CONFIG_REGISTRY` (default empty, uses official npm registry)
 
-## Notable files
+## 📄 Notable files
 
 - `book.json` — default GitBook config (Chinese, Prism, page-treeview, tbfed-pagefooter, favicon plugins)
 - `renovate.json` — Renovate base config for dependency updates
@@ -63,7 +63,7 @@ honkit epub
 - `tests/docker_test.sh` — standalone smoke test script (build + CLI verification), generates report at `tests/reports/test-report-<timestamp>.log`
 - `README.en.md` / `README.ja.md` / `README.ko.md` / `README.es.md` / `README.hi.md` / `README.ar.md` / `README.pt.md` / `README.bn.md` / `README.ru.md` / `README.fr.md` / `README.de.md` — multi-language README translations (12 languages)
 
-## 文档导航
+## 📖 文档导航
 
 | 文档 | 内容 |
 |------|------|
@@ -73,7 +73,7 @@ honkit epub
 | `docs/TESTING.md` | 构建验证、运行时测试、自动测试脚本用法 |
 | `docs/CHANGELOG.md` | 版本变更历史 |
 
-## 经验知识库
+## 🧠 经验知识库
 
 路径：`~/Work/dev-experience/`
 本项目标签：`docker`, `ci-cd`, `node`, `documentation`, `ssg`
