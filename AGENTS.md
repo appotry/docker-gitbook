@@ -76,19 +76,7 @@ honkit epub
 | `docs/TESTING.md` | 构建验证、运行时测试、自动测试脚本用法 |
 | `docs/CHANGELOG.md` | 版本变更历史 |
 
-## 关键细节
+## 经验知识库
 
-- **经验版本验证**：每次 session 开始时检查相关经验版本号，如有更新则读取新版并向用户展示变化摘要，用户确认后应用重构优化。
-- **最小化引用**：非必要不引入新经验。工作内容变动需引入新经验时，先向用户展示摘要确认后再添加。
-
-## 🧠 经验知识库
-
-路径：`~/Work/dev-experience/`
+路径：`~/Work/dev-experience/`（[gateway skill](~/.agents/skills/dev-experience/SKILL.md) 自动加载）
 本项目标签：`docker`, `ci-cd`, `node`, `documentation`, `ssg`
-
-相关经验参考：
-- `04-documentation/07-docker-image-doc-architecture.md` — Docker 镜像项目的工程化文档体系（本文档体系遵循此方案）
-- `05-ci-cd/02-docker-multi-stage.md` — Docker 多阶段构建策略
-- `05-ci-cd/04-docker-test-automation.md` — Docker 自动测试流水线
-- `99-general/14-docker-standards.md` — Docker 编码规范（分层缓存、多阶段构建、命名）
-- `99-general/17-mirror-check-automation.md` — 镜像源可用性自动检测（npm/node/PyPI 国内镜像）
