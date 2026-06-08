@@ -11,14 +11,6 @@ LABEL com.github.actions.color="white"
 
 ENV TZ=Asia/Shanghai
 ENV QTWEBENGINE_DISABLE_SANDBOX=1
-
-ENV GIT_USERNAME="" \
-    GIT_USEREMAIL="" \
-    GIT_TOKEN="" \
-    GIT_REPO="" \
-    GIT_BRANCH="gh-pages" \
-    GIT_COMMIT_MESSAGE="Gitbook updated:"
-
 ENV NPM_CONFIG_LOGLEVEL=info
 ENV NPM_CONFIG_REGISTRY=""
 

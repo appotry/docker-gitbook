@@ -18,23 +18,12 @@ else
     ssh-keyscan github.com > ~/.ssh/known_hosts 2>/dev/null 
     ssh-keyscan gitlab.com >> ~/.ssh/known_hosts 2>/dev/null 
     cp -r ~/.ssh /gitbook; 
-fi; 
-
-echo "*****[Gitbook] Running git config, user = ${GIT_USER}, email = ${GIT_EMAIL} *****" 
-git config --global user.email ${GIT_EMAIL} 
-git config --global user.name ${GIT_USER} 
-echo "*****[Gitbook] Copying .ssh from gitbook directory and setting permissions *****" 
-cp -r /gitbook/.ssh ~/ 
-chmod 600 ~/.ssh/id_rsa 
-chmod 600 ~/.ssh/id_rsa.pub 
-chmod 700 ~/.ssh 
-echo "*****[Gitbook] Contents of public ssh key (for deploy) - *****" 
-cat ~/.ssh/id_rsa.pub 
+fi;
 
 # npm config
 npm config ls -l
 
-if [ "$(ls -A /gitbook/.cache 2>/dev/null)" ]; then 
+if [ "$(ls -A /gitbook/.cache 2>/dev/null)" ]; then
     echo "***** /gitbook/.cache directory exists and has content, continuing *****"; 
 else 
     echo "***** /gitbook/.cache directory is empty. mkdir -p /gitbook/.cache*****" 
