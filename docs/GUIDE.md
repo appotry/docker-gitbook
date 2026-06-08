@@ -142,3 +142,28 @@ RUN apt-get install -y fonts-noto-cjk
 ```
 
 PlantUML 需要 Java 和 Graphviz，均已预装在此镜像中。
+
+### PDF 目录页码深度不足
+
+默认情况下，GitBook CLI 和 Honkit 生成的 PDF 文件，目录（TOC）只显示 **二级（H2）标题的页码**，三级及以下（H3+）标题有文字但**无页码**。
+
+这是因为底层 Calibre 引擎默认 `--toc-depth=2`。在 `book.json` 中调整 `pdf.tocDepth` 即可控制：
+
+```json
+{
+  "pdf": {
+    "tocDepth": 3
+  }
+}
+```
+
+| 值 | 目录包含的标题层级 | 说明 |
+|----|-------------------|------|
+| `2` | H1 + H2 | 默认值，三级及以上无页码 |
+| `3` | H1 + H2 + H3 | 常见值，覆盖大部分文档需求 |
+| `4` | H1 ~ H4 | 文档结构较深时使用 |
+| `0` | 全部层级 | 无限制，慎用于长文档（目录会非常长） |
+
+> **注意**：
+> - `pdf.tocDepth` 影响的是 PDF 文件**内置的目录书签**（在 PDF 阅读器中点击跳转），而非页面正文内渲染的目录。
+> - 如果在 Makefile 或脚本中组合使用 `honkit pdf` / `gitbook pdf`，务必确认 `book.json` 中的 `pdf.tocDepth` 已设置为你需要的深度。

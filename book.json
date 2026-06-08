@@ -17,6 +17,10 @@
     "page-treeview@2.9.8",
     "favicon"
   ],
+  "pdf": {
+    "tocDepth": 2,
+    "tocTitle": "目录"
+  },
   "pluginsConfig": {
     "prism": {
       "css": [
