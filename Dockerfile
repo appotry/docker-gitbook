@@ -20,6 +20,8 @@ RUN apt-get update && \
     ca-certificates curl git \
     openjdk-17-jre-headless calibre graphviz \
     fonts-noto fonts-noto-cjk locales-all \
+    && strip --remove-section=.note.ABI-tag \
+        /usr/lib/$(dpkg-architecture -q DEB_HOST_MULTIARCH)/libQt5Core.so.5 || true \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # GitBook CLI + Honkit + 工具
