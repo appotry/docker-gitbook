@@ -1,6 +1,5 @@
-# 基础镜像说明：当前用 node:20-bookworm-slim（Debian 12）
-# 升级到 node:22-trixie-slim 需先确保镜像可拉取（见 README 升级说明）
-FROM node:20-bookworm-slim
+# 基础镜像说明：node:22-trixie-slim（Debian 13, Node.js 22 LTS）
+FROM node:22-trixie-slim
 
 LABEL maintainer="andycrusoe@gmail.com"
 LABEL repository="https://github.com/appotry/docker-gitbook"

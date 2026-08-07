@@ -117,7 +117,7 @@ docker run --rm -v "$PWD":/gitbook \
 
 ### 构建报错 `cb() never called`
 
-GitBook CLI 在 Node.js 20 上的已知问题，此镜像已通过补丁修复。如果遇到，尝试使用 Honkit：
+GitBook CLI 在新版 Node.js 上的已知问题，此镜像已通过补丁修复。如果遇到，尝试使用 Honkit：
 
 ```bash
 honkit build

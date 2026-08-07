@@ -44,7 +44,7 @@ alias honkit='docker run --rm -v "$PWD":/gitbook -p 4000:4000 bloodstar/gitbook-
 
 | Función | Descripción |
 |---------|-------------|
-| **GitBook CLI** | Versión clásica, parcheada para Node.js 20 |
+| **GitBook CLI** | Versión clásica, parcheada para Node.js 22 |
 | **Honkit** | Fork comunitario, compatible con book.json |
 | **PlantUML** | Diagramas con OpenJDK 17 + Graphviz |
 | **PDF/EPUB** | Conversión con Calibre |

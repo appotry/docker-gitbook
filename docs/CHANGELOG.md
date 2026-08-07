@@ -1,5 +1,12 @@
 # 📝 Changelog
 
+## [0.4.0] — 2026-08-07
+
+### Changed
+
+- 🚀 基础镜像升级：`node:20-bookworm-slim`（Debian 12 / Node 20）→ `node:22-trixie-slim`（Debian 13 / Node.js 22 LTS）
+- 📝 全文档体系同步更新基础镜像版本引用（README × 12 语言、docs/*、AGENTS.md、DOCKER_README）
+
 ## [0.3.0] — 2026-06-08
 
 ### Added

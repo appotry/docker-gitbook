@@ -15,7 +15,7 @@
 
 ## 🐳 Dockerfile 要点
 
-- 基础镜像：`node:20-slim`（基于 Debian，预装 Node.js 20，追踪最新 Debian 稳定版）
+- 基础镜像：`node:22-trixie-slim`（基于 Debian 13，预装 Node.js 22 LTS）
 - 构建时修补 GitBook CLI：用 `sed` 注释掉 `graceful-fs/polyfills.js` 中的三行（防止新版 Node 崩溃）
 - **Honkit**（社区维护的 GitBook 分支）也以 `honkit` 名称安装 — 即插即用，兼容 `book.json` 格式
 - npm install 期间设置 `PUPPETEER_SKIP_DOWNLOAD=true`
@@ -37,7 +37,7 @@
 alias gitbook='docker run --rm -v "$PWD":/gitbook -p 4000:4000 bloodstar/gitbook-builder gitbook'
 alias honkit='docker run --rm -v "$PWD":/gitbook -p 4000:4000 bloodstar/gitbook-builder honkit'
 
-# GitBook（旧版，已修补可在 Node 20 上运行）
+# GitBook（旧版，已修补可在新版 Node.js 上运行）
 gitbook init
 gitbook serve   # 在 :4000 提供访问
 gitbook build

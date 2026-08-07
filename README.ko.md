@@ -44,7 +44,7 @@ alias honkit='docker run --rm -v "$PWD":/gitbook -p 4000:4000 bloodstar/gitbook-
 
 | 기능 | 설명 |
 |------|------|
-| **GitBook CLI** | 레거시 버전, Node.js 20 호환 패치 적용 |
+| **GitBook CLI** | 레거시 버전, Node.js 22 호환 패치 적용 |
 | **Honkit** | 커뮤니티 유지보수 버전, 완전 호환 |
 | **PlantUML** | OpenJDK 17 + Graphviz 다이어그램 렌더링 |
 | **PDF/EPUB** | Calibre 전자책 변환 |

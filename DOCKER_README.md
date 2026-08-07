@@ -45,7 +45,7 @@ docker run --rm -v "$PWD":/gitbook \
 
 ## ✨ Features
 
-- **GitBook CLI** — Classic version, patched for Node.js 20
+- **GitBook CLI** — Classic version, patched for modern Node.js
 - **Honkit** — Community-maintained fork, drop-in replacement
 - **PlantUML** — Diagram rendering via OpenJDK 17 + Graphviz
 - **PDF / EPUB** — Ebook conversion via Calibre

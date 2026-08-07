@@ -7,9 +7,9 @@
 ## 🏗️ 技术栈
 
 ```
-node:20-slim
-├── Node.js 20          # 自带，跟踪最新 Debian 稳定版
-├── GitBook CLI         # 经典版本，已打补丁兼容 Node.js 20
+node:22-trixie-slim
+├── Node.js 22          # 自带，Node.js 22 LTS（Debian 13）
+├── GitBook CLI         # 经典版本，已打补丁兼容新版 Node.js
 ├── Honkit              # 社区维护版本，与 GitBook 完全兼容
 ├── OpenJDK 17 JRE      # 用于 PlantUML 插件
 ├── Calibre             # 电子书格式转换（epub、pdf）
@@ -19,7 +19,7 @@ node:20-slim
 
 ## 🔧 构建流程
 
-1. `node:20-slim` 基础镜像（自带 Node.js 20，跟踪最新 Debian 稳定版）
+1. `node:22-trixie-slim` 基础镜像（自带 Node.js 22 LTS，Debian 13）
 2. 安装系统包：OpenJDK 17、Calibre、Graphviz、Noto CJK 字体（合并为 1 层）
 3. 安装 npm 全局包：gitbook-cli、honkit、svgexport
 4. 修补 gitbook-cli 自带的 graceful-fs（注释 3 处 statFix 代码）
@@ -56,7 +56,7 @@ GitHub Actions 构建镜像工作流：
 | 决策 | 理由 |
 |------|------|
 | 选用 Debian 而非 Alpine | Calibre 包可用性要求；兼容性更好 |
-| 选用 node:20-slim 基础镜像 | 自带 Node.js 20，跟踪最新 Debian 稳定版，无需额外包管理器 |
+| 选用 node:22-trixie-slim 基础镜像 | 自带 Node.js 22 LTS，Debian 13，无需额外包管理器 |
 | 同时保留 gitbook + honkit | 向后兼容 + 现代替代方案 |
-| graceful-fs 补丁 | GitBook CLI 在 Node 20 上会崩溃 |
+| graceful-fs 补丁 | GitBook CLI 在新版 Node.js 上会崩溃 |
 | 入口脚本禁用 | 保持镜像简洁，多数用户直接使用 docker run |
