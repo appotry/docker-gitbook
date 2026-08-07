@@ -16,3 +16,6 @@ tests/reports/
 # Dependabot trigger manifest (not a real Node project)
 node_modules/
 package-lock.json
+
+# AI assistant working directory
+.opencode/
