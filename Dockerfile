@@ -22,11 +22,13 @@ ENV CHROME_BIN=/usr/bin/chromium
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     ca-certificates curl git \
-    openjdk-17-jre-headless calibre graphviz \
+    openjdk-21-jre-headless calibre graphviz \
     fonts-noto fonts-noto-cjk locales-all \
     chromium \
     && strip --remove-section=.note.ABI-tag \
         /usr/lib/$(dpkg-architecture -q DEB_HOST_MULTIARCH)/libQt5Core.so.5 || true \
+    && strip --remove-section=.note.ABI-tag \
+        /usr/lib/$(dpkg-architecture -q DEB_HOST_MULTIARCH)/libQt6Core.so.6 || true \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # GitBook CLI + Honkit + 工具 + Mermaid CLI

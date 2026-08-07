@@ -19,7 +19,8 @@
 - 构建时修补 GitBook CLI：用 `sed` 注释掉 `graceful-fs/polyfills.js` 中的三行（防止新版 Node 崩溃）
 - **Honkit**（社区维护的 GitBook 分支）也以 `honkit` 名称安装 — 即插即用，兼容 `book.json` 格式
 - npm install 期间设置 `PUPPETEER_SKIP_DOWNLOAD=true`
-- 包含 OpenJDK 17 JRE（用于 PlantUML 插件）、Calibre（用于 epub/pdf）、Graphviz（用于 PlantUML 图表）
+- 包含 OpenJDK 21 JRE（用于 PlantUML 插件，trixie 已无 openjdk-17）、Calibre（用于 epub/pdf）、Graphviz（用于 PlantUML 图表）
+- 包含 Chromium（用于 Mermaid 渲染，`PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium`）与全局 `@mermaid-js/mermaid-cli`（mmdc）
 - 包含 Noto CJK 字体
 - **npm 镜像源**（运行时）：默认使用官方源。设置 `-e NPM_CONFIG_REGISTRY=https://registry.npmmirror.com` 切换淘宝镜像
 
