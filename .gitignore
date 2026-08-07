@@ -19,3 +19,4 @@ package-lock.json
 
 # AI assistant working directory
 .opencode/
+.omo/
