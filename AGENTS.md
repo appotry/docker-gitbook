@@ -7,7 +7,7 @@
 - 镜像：`bloodstar/gitbook-builder`（Docker Hub）
 - CI：`.github/workflows/Build Image.yml` — 推送 `main`/`master`（含 Dependabot 自动合并）、推送 `v*` 标签、和 `workflow_dispatch` 时触发
 - 构建触发器：`package.json` 中的 `gitbook-cli` + `honkit` 依赖 + Dependabot 新版本自动 PR
-- 多架构：`linux/amd64`、`linux/arm/v7`、`linux/arm64`（通过 QEMU + Buildx）
+- 多架构：`linux/amd64`、`linux/arm64`（通过 QEMU + Buildx；node:22-trixie 不再支持 arm/v7）
 - 必要 Secret：`DOCKER_USERNAME`、`DOCKER_PASSWORD`
 - 自动标签：`latest`、`gitbook-<version>`、`honkit-<major>`、`honkit-<major>.<minor>`、`honkit-<full>`
 - Git 标签推送：`v<semver>`（如 `v0.2.0`）

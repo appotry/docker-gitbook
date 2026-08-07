@@ -49,7 +49,7 @@ alias honkit='docker run --rm -v "$PWD":/gitbook -p 4000:4000 bloodstar/gitbook-
 | **PlantUML** | OpenJDK 17 + Graphviz 다이어그램 렌더링 |
 | **PDF/EPUB** | Calibre 전자책 변환 |
 | **CJK 폰트** | Noto Sans CJK 지원 |
-| **멀티 아키텍처** | linux/amd64, linux/arm/v7, linux/arm64 |
+| **멀티 아키텍처** | linux/amd64, linux/arm64 |
 
 ## 사용 예시
 

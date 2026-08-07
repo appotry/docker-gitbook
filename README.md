@@ -49,7 +49,7 @@ alias honkit='docker run --rm -v "$PWD":/gitbook -p 4000:4000 bloodstar/gitbook-
 | **PlantUML 图表** | 基于 OpenJDK 17 + Graphviz |
 | **PDF/EPUB 输出** | 内置 Calibre 转换引擎 |
 | **CJK 字体** | Noto Sans CJK，中日韩文字正确渲染 |
-| **多架构** | linux/amd64, linux/arm/v7, linux/arm64 |
+| **多架构** | linux/amd64, linux/arm64 |
 | **CN 加速** | 内置 cnpm 工具；设置环境变量 `NPM_CONFIG_REGISTRY` 可切换 npm 镜像源 |
 
 ## 📖 使用示例

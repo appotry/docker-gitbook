@@ -35,7 +35,7 @@ GitHub Actions 构建镜像工作流：
 
 - **触发条件**：推送 main/master（含 Dependabot 合并）、推送 `v*` 标签、手动触发
 - **构建触发机制**：通过 `package.json` 声明 `gitbook-cli` + `honkit` 依赖，Dependabot 检测到 npm 新版本后自动创建 PR，合并 PR 触发构建
-- **多架构构建**：linux/amd64、linux/arm/v7、linux/arm64，通过 QEMU + Buildx
+- **多架构构建**：linux/amd64、linux/arm64（node:22-trixie 官方镜像不再提供 arm/v7），通过 QEMU + Buildx
 - **推送目标**：Docker Hub `bloodstar/gitbook-builder`
 - **自动标签**：`latest`、`gitbook-<版本>`、`honkit-<主版本>`、`honkit-<主>.<次>`、`honkit-<完整版本>`
 - **版本标签**：推送 git tag 时额外生成 `v<语义化版本>`

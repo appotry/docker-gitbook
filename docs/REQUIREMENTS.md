@@ -16,7 +16,7 @@
 
 | 编号 | 需求 | 目标 |
 |------|------|------|
-| N1 | 多架构支持 | linux/amd64、linux/arm/v7、linux/arm64 |
+| N1 | 多架构支持 | linux/amd64、linux/arm64 |
 | N2 | 每周自动重建 | 每周日 01:10 UTC，通过 GitHub Actions |
 | N3 | GitBook CLI 在新版 Node.js 上可用 | 构建时修补 graceful-fs 补丁 |
 | N4 | 国内网络友好 | 支持运行时设置 NPM_CONFIG_REGISTRY 切换国内镜像源 |

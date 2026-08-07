@@ -49,7 +49,7 @@ alias honkit='docker run --rm -v "$PWD":/gitbook -p 4000:4000 bloodstar/gitbook-
 | **PlantUML** | Diagram rendering via OpenJDK 17 + Graphviz |
 | **PDF/EPUB** | Ebook conversion via Calibre |
 | **CJK Fonts** | Noto Sans CJK for Chinese, Japanese, and Korean text |
-| **Multi-arch** | linux/amd64, linux/arm/v7, linux/arm64 |
+| **Multi-arch** | linux/amd64, linux/arm64 |
 | **CN Mirror** | cnpm pre-installed; set `NPM_CONFIG_REGISTRY` to switch npm registry mirror |
 
 ## Usage

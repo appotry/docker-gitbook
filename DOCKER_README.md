@@ -50,7 +50,7 @@ docker run --rm -v "$PWD":/gitbook \
 - **PlantUML** — Diagram rendering via OpenJDK 17 + Graphviz
 - **PDF / EPUB** — Ebook conversion via Calibre
 - **CJK Fonts** — Noto Sans CJK for Chinese, Japanese, Korean
-- **Multi-arch** — linux/amd64, linux/arm/v7, linux/arm64
+- **Multi-arch** — linux/amd64, linux/arm64
 - **cnpm** — Pre-installed for Chinese mirror users
 
 ## 🏷️ Tags
