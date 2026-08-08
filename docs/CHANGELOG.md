@@ -6,6 +6,8 @@
 
 - 🚀 基础镜像升级：`node:20-bookworm-slim`（Debian 12 / Node 20）→ `node:22-trixie-slim`（Debian 13 / Node.js 22 LTS）
 - ⚠️ 移除 `linux/arm/v7` 构建平台：node:22-trixie 官方镜像不再提供 32 位 ARM，现支持 amd64 + arm64
+- 🛠 OpenJDK 17 → 21（trixie 已移除 openjdk-17，PlantUML 改用 openjdk-21-jre-headless）
+- 🎨 新增 Mermaid 渲染：内置 Chromium + `@mermaid-js/mermaid-cli`（mmdc），构建时渲染 SVG，HTML/EPUB/PDF 三格式兼容
 - 📝 全文档体系同步更新基础镜像版本引用（README × 12 语言、docs/*、AGENTS.md、DOCKER_README）
 
 ## [0.3.0] — 2026-06-08
