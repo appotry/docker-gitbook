@@ -36,14 +36,15 @@ RUN apt-get update && \
 # GitBook CLI + Honkit + 工具 + Mermaid CLI
 RUN export PUPPETEER_SKIP_DOWNLOAD='true' && \
     npm install -g gitbook-cli honkit svgexport @mermaid-js/mermaid-cli && \
-    if [ -f /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js ]; then \
-      sed -i 's/fs.stat = statFix(fs.stat)/\/\/fs.stat = statFix(fs.stat)/g' \
-        /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
-      sed -i 's/fs.fstat = statFix(fs.fstat)/\/\/fs.fstat = statFix(fs.fstat)/g' \
-        /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js && \
-      sed -i 's/fs.lstat = statFix(fs.lstat)/\/\/fs.lstat = statFix(fs.lstat)/g' \
-        /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js; \
-    fi && \
+    for POLY in \
+      /usr/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js \
+      /usr/local/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js; do \
+      if [ -f "$POLY" ]; then \
+        sed -i 's/fs.stat = statFix(fs.stat)/\/\/fs.stat = statFix(fs.stat)/g' "$POLY" && \
+        sed -i 's/fs.fstat = statFix(fs.fstat)/\/\/fs.fstat = statFix(fs.fstat)/g' "$POLY" && \
+        sed -i 's/fs.lstat = statFix(fs.lstat)/\/\/fs.lstat = statFix(fs.lstat)/g' "$POLY"; \
+      fi; \
+    done && \
     gitbook --version 2>/dev/null || true && \
     honkit --version && \
     mmdc --version && \
@@ -67,6 +68,7 @@ RUN rm -f /usr/local/bin/mmdc && \
     mmdc --version
 
 ENV BOOKDIR=/gitbook
+ENV NODE_PATH=/gitbook/node_modules
 
 VOLUME $BOOKDIR
 
