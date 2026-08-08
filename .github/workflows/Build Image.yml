@@ -55,5 +55,7 @@ jobs:
         with:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
+          build-args: |
+            NPM_CONFIG_REGISTRY=https://registry.npmmirror.com
           push: true
           tags: ${{ steps.set-tags.outputs.tags }}
