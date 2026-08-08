@@ -13,7 +13,9 @@ LABEL com.github.actions.color="white"
 ENV TZ=Asia/Shanghai
 ENV QTWEBENGINE_DISABLE_SANDBOX=1
 ENV NPM_CONFIG_LOGLEVEL=info
-ENV NPM_CONFIG_REGISTRY=""
+# 构建时可覆盖的 npm 镜像源（如 https://registry.npmmirror.com）
+ARG NPM_CONFIG_REGISTRY=""
+ENV NPM_CONFIG_REGISTRY=${NPM_CONFIG_REGISTRY}
 # Mermaid 渲染：mmdc 使用系统 chromium
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
 ENV CHROME_BIN=/usr/bin/chromium
@@ -46,6 +48,23 @@ RUN export PUPPETEER_SKIP_DOWNLOAD='true' && \
     honkit --version && \
     mmdc --version && \
     npm cache clean --force
+
+# PlantUML：下载官方 jar（java + graphviz 已在 apt 层安装）
+RUN mkdir -p /usr/share/plantuml && \
+    curl -fsSL -o /usr/share/plantuml/plantuml.jar \
+      "https://github.com/plantuml/plantuml/releases/download/v1.2024.7/plantuml-1.2024.7.jar" && \
+    echo '#!/bin/sh' > /usr/local/bin/plantuml && \
+    echo 'exec java -jar /usr/share/plantuml/plantuml.jar "$@"' >> /usr/local/bin/plantuml && \
+    chmod +x /usr/local/bin/plantuml && \
+    java -jar /usr/share/plantuml/plantuml.jar -version | head -2
+
+# Mermaid：root 用户下 Chromium 需 --no-sandbox（用户可用 -p 覆盖此配置）
+RUN rm -f /usr/local/bin/mmdc && \
+    echo '{"args": ["--no-sandbox"]}' > /puppeteer-config.json && \
+    echo '#!/bin/sh' > /usr/local/bin/mmdc && \
+    echo 'exec node /usr/local/lib/node_modules/@mermaid-js/mermaid-cli/src/cli.js -p /puppeteer-config.json "$@"' >> /usr/local/bin/mmdc && \
+    chmod +x /usr/local/bin/mmdc && \
+    mmdc --version
 
 ENV BOOKDIR=/gitbook
 
